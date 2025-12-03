@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, Phone, Mail, MapPin, ChevronRight, Check, ArrowRight, Linkedin, Building, Briefcase, TrendingUp, Users, Target, BarChart } from 'lucide-react';
+import logoSvg from '/public/logo.svg';
 
 // --- Styles Injection ---
 // Simulierte CSS-Umgebung. In Produktion sollte dies in eine CSS-Datei oder den Head.
@@ -275,7 +276,7 @@ const translations = {
 
 const Logo = () => (
   <div className="flex items-center justify-center select-none">
-    <img src="/logo.svg" alt="Build & Consult" className="h-32 w-auto" />
+    <img src={logoSvg} alt="Build & Consult" className="h-32 w-auto" />
   </div>
 );
 
