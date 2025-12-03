@@ -642,14 +642,27 @@ export default function App() {
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-[#0B1F38] py-8 flex flex-col items-center space-y-6 shadow-xl border-t border-gray-800 animate-fadeIn">
              {navItems.map(item => (
-               <button 
-                 key={item.id} 
+               <button
+                 key={item.id}
                  onClick={() => { setCurrentPage(item.id); setMobileMenuOpen(false); window.scrollTo(0,0); }}
                  className={`text-lg uppercase tracking-widest ${currentPage === item.id ? 'text-[#D9C5A1]' : 'text-white'}`}
                >
                  {item.label}
                </button>
              ))}
+
+             {/* Language Switcher in Mobile Menu */}
+             <div className="flex items-center space-x-4 text-white text-sm pt-4 border-t border-gray-700 mt-4 w-40">
+               {['de', 'en', 'it'].map(l => (
+                 <button
+                   key={l}
+                   onClick={() => setLang(l)}
+                   className={`uppercase ${lang === l ? 'text-[#D9C5A1] font-bold underline' : 'opacity-70 hover:opacity-100'}`}
+                 >
+                   {l}
+                 </button>
+               ))}
+             </div>
           </div>
         )}
       </nav>
