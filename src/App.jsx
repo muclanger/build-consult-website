@@ -18,50 +18,69 @@ const translations = {
   de: {
     nav: { home: 'Home', about: 'Über Uns', services: 'Dienstleistungen', method: 'Arbeitsweise', why: 'Warum wir?', contact: 'Kontakt' },
     home: {
-      title: 'Werte schaffen. Zukunft bauen.',
-      subtitle: 'Ihr Premium-Partner für Real Estate Consulting & Development.',
+      title: '[ PLATZHALTER: Neue Headline einf\u00fcgen ]',
+      subtitle: '[ PLATZHALTER: Neue Subline einf\u00fcgen ]',
       cta: 'Unsere Expertise',
       teaser_title: 'Exzellenz in Immobilien',
-      teaser_text: 'Wir verbinden architektonische Vision mit ökonomischer Präzision. Unser Anspruch ist es, bleibende Werte zu schaffen, die Generationen überdauern.',
+      teaser_text: 'Wir verbinden architektonische Vision mit \u00f6konomischer Pr\u00e4zision. Unser Anspruch ist es, bleibende Werte zu schaffen, die Generationen \u00fcberdauern.',
       learn_more: 'Mehr erfahren'
     },
     about: {
       title: 'Über Uns',
       intro: 'Build & Consult ist mehr als eine Beratung. Wir sind Ihr strategischer Partner in einer komplexen Immobilienwelt.',
       mission_title: 'Unsere Mission',
-      mission_text: 'Wir haben Build & Consult gegründet, um die Lücke zwischen technischer Baurealisierung und strategischem Investment-Consulting zu schließen. Oft sprechen Architekten und Investoren verschiedene Sprachen. Wir sprechen beide.',
-      quote: 'Qualität entsteht dort, wo Erfahrung auf Leidenschaft trifft.',
+      mission_text: '[ PLATZHALTER: Neuer Mission-Text einf\u00fcgen ]',
+      quote: 'Qualit\u00e4t entsteht dort, wo Erfahrung auf Leidenschaft trifft.',
       team_title: 'Das Board',
       team_intro: 'Diskretion und persönliche Integrität stehen für uns an erster Stelle.',
       role: 'Managing Partner'
     },
     services: {
       title: 'Unsere Dienstleistungen',
-      intro: 'Ein ganzheitliches Portfolio für anspruchsvolle Investoren und Eigentümer.',
+      intro: 'Ein ganzheitliches Portfolio f\u00fcr anspruchsvolle Investoren und Eigent\u00fcmer.',
       details: [
+        {
+          title: 'Bauherrenvertretung',
+          icon: 'Users',
+          text: '[ PLATZHALTER: Text f\u00fcr Bauherrenvertretung einf\u00fcgen ]',
+          points: ['Vertretung Ihrer Interessen', 'Koordination aller Beteiligten', 'Qualit\u00e4tssicherung', 'Termin\u00fcberwachung'],
+          image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop'
+        },
+        {
+          title: 'Projektsteuerung',
+          icon: 'BarChart',
+          text: '[ PLATZHALTER: Text f\u00fcr Projektsteuerung einf\u00fcgen ]',
+          points: ['Kosten- und Termincontrolling', 'Steuerung von Planungsteams', 'Risikomanagement', 'Reporting'],
+          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop'
+        },
+        {
+          title: 'Interim-Projektleitung',
+          icon: 'Target',
+          text: '[ PLATZHALTER: Text f\u00fcr Interim-Projektleitung einf\u00fcgen - WICHTIG: Dies ist Ihr USP! ]',
+          points: ['Sofortige Verf\u00fcgbarkeit', 'Operative Projektleitung', 'Krisenintervention', 'Tempor\u00e4re F\u00fchrung'],
+          image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop',
+          isUsp: true
+        },
+        {
+          title: 'Strategische Beratung',
+          icon: 'Briefcase',
+          text: '[ PLATZHALTER: Text f\u00fcr Strategische Beratung einf\u00fcgen ]',
+          points: ['Standort- und Marktanalysen', 'Nutzungskonzepte', 'Portfolio-Strategie', 'ESG-Beratung'],
+          image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop'
+        },
         {
           title: 'Projektentwicklung',
           icon: 'Building',
-          text: 'Wir begleiten Ihr Projekt von der Grundstücksakquise bis zur schlüsselfertigen Übergabe. Unser Fokus liegt auf nachhaltiger Architektur und Kosteneffizienz.',
-          points: ['Machbarkeitsstudien & Baurechtschaffung', 'Steuerung von Planungsteams', 'Kosten- und Termincontrolling', 'Qualitätssicherung']
+          text: '[ PLATZHALTER: Text f\u00fcr Projektentwicklung einf\u00fcgen ]',
+          points: ['Machbarkeitsstudien', 'Baurechtschaffung', 'Entwicklungskonzepte', 'Realisierung'],
+          image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop'
         },
         {
-          title: 'Strategic Consulting',
-          icon: 'Target',
-          text: 'Investitionsentscheidungen benötigen fundierte Daten. Wir liefern Marktanalysen und Strategiepapiere, die als sichere Entscheidungsgrundlage dienen.',
-          points: ['Standort- und Marktanalysen', 'Nutzungskonzepte', 'Portfolio-Strategie', 'ESG-Beratung']
-        },
-        {
-          title: 'Asset Management',
+          title: 'Weitere Dienstleistungen',
           icon: 'TrendingUp',
-          text: 'Immobilien sind lebende Organismen. Wir optimieren den Bestand, heben Mietpotenziale und sorgen für eine nachhaltige Wertsicherung.',
-          points: ['Vermietungsmanagement', 'Instandhaltungsstrategien', 'Capex-Maßnahmen', 'Reporting']
-        },
-        {
-          title: 'Transaktionsberatung',
-          icon: 'Briefcase',
-          text: 'Ob Kauf oder Verkauf: Wir strukturieren Prozesse professionell und diskret, um das optimale Ergebnis für Sie zu erzielen.',
-          points: ['Ankaufsprüfung (Due Diligence)', 'Verkaufsstrukturierung', 'Datenraum-Management', 'Verhandlungsführung']
+          text: '[ PLATZHALTER: Text f\u00fcr weitere Dienstleistungen einf\u00fcgen ]',
+          points: ['Asset Management', 'Transaktionsberatung', 'Due Diligence', 'Verhandlungsf\u00fchrung'],
+          image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'
         }
       ]
     },
@@ -69,10 +88,11 @@ const translations = {
       title: 'Unsere Arbeitsweise',
       intro: 'Strukturiert. Transparent. Zielorientiert. Unser Prozess garantiert Sicherheit in jeder Phase.',
       steps: [
-        { title: '1. Analyse', text: 'Jedes Mandat beginnt mit dem Zuhören. Wir analysieren die Ist-Situation, die Marktgegebenheiten und Ihre persönlichen Ziele.' },
-        { title: '2. Strategie', text: 'Auf Basis der Analyse entwickeln wir maßgeschneiderte Lösungswege – mit klaren Meilensteinen und Budgets.' },
-        { title: '3. Umsetzung', text: 'Wir übernehmen die Verantwortung. Mit Hands-on-Mentalität setzen wir die Strategie um und steuern alle Beteiligten.' },
-        { title: '4. Controlling', text: 'Vertrauen ist gut, Kontrolle ist besser. Durch transparentes Reporting wissen Sie jederzeit, wo Ihr Projekt steht.' }
+        { title: '1. Analyse', text: '[ PLATZHALTER: Schritt 1 - Analyse einf\u00fcgen ]' },
+        { title: '2. Strategie', text: '[ PLATZHALTER: Schritt 2 - Strategie einf\u00fcgen ]' },
+        { title: '3. Umsetzung', text: '[ PLATZHALTER: Schritt 3 - Umsetzung einf\u00fcgen ]' },
+        { title: '4. Controlling', text: '[ PLATZHALTER: Schritt 4 - Controlling einf\u00fcgen ]' },
+        { title: '5. Abschluss', text: '[ PLATZHALTER: Schritt 5 - Abschluss einf\u00fcgen ]' }
       ]
     },
     why: {
@@ -91,7 +111,7 @@ const translations = {
       contact_details: 'Kontaktdaten',
       office_hours: 'Bürozeiten',
       office_hours_text: 'Mo - Fr: 09:00 - 18:00 Uhr',
-      address: 'Musterstraße 1, 8001 Zürich',
+      address: '[ PLATZHALTER: Adresse Z\u00fcrich einf\u00fcgen ]',
       form: { name: 'Name', email: 'E-Mail', message: 'Ihre Nachricht', send: 'Nachricht senden' }
     },
     footer: {
@@ -276,7 +296,7 @@ const translations = {
 
 const Logo = () => (
   <div className="flex items-center justify-center select-none">
-    <img src={logoSvg} alt="Build & Consult" className="h-32 w-auto" />
+    <img src={logoSvg} alt="BUILD & CONSULT" className="h-16 w-auto" />
   </div>
 );
 
@@ -288,7 +308,7 @@ const SectionHeader = ({ title, subtitle }) => (
     </div>
     <div className="container mx-auto px-6 relative z-10">
       <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fadeIn">{title}</h1>
-      {subtitle && <p className="text-[#D9C5A1] text-lg font-light tracking-wide max-w-2xl mx-auto">{subtitle}</p>}
+      {subtitle && <p className="text-[#D9C5A1] text-xl font-light tracking-wide max-w-2xl mx-auto">{subtitle}</p>}
       <div className="w-16 h-1 bg-[#D9C5A1] mx-auto mt-8"></div>
     </div>
   </div>
@@ -312,12 +332,40 @@ const Home = ({ t, setPage }) => (
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight drop-shadow-lg">
           {t.home.title}
         </h1>
-        <p className="text-xl md:text-2xl text-gray-200 mb-10 font-light max-w-3xl mx-auto tracking-wide">
+        <p className="text-2xl md:text-3xl text-gray-200 mb-10 font-light max-w-3xl mx-auto tracking-wide">
           {t.home.subtitle}
         </p>
         <button onClick={() => setPage('services')} className="bg-[#D9C5A1] text-[#0B1F38] px-8 py-4 uppercase tracking-[0.15em] text-sm font-bold hover:bg-white transition-colors duration-300">
           {t.home.cta}
         </button>
+      </div>
+    </div>
+
+    {/* USP Banner - Interim-Projektleitung */}
+    <div className="bg-gradient-to-r from-[#0B1F38] via-[#1a3a5c] to-[#0B1F38] py-16 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 border-4 border-[#D9C5A1] rounded-full"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 border-4 border-[#D9C5A1] rounded-full"></div>
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block bg-[#D9C5A1] text-[#0B1F38] px-6 py-2 text-sm font-bold uppercase tracking-widest mb-6 shadow-xl">
+            Unser USP
+          </div>
+          <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
+            Interim-Projektleitung
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            Wenn es brennt, sind wir f\u00fcr Sie da. Sofortige Verf\u00fcgbarkeit, operative Excellence und Krisenmanagement \u2013
+            wenn Ihre Projekte einen erfahrenen Projektleiter ben\u00f6tigen, stehen wir bereit.
+          </p>
+          <button
+            onClick={() => setPage('services')}
+            className="bg-[#D9C5A1] text-[#0B1F38] px-10 py-4 uppercase tracking-[0.15em] text-sm font-bold hover:bg-white transition-all duration-300 shadow-2xl hover:shadow-none inline-flex items-center gap-3"
+          >
+            Mehr erfahren <ChevronRight size={20} />
+          </button>
+        </div>
       </div>
     </div>
 
@@ -327,14 +375,14 @@ const Home = ({ t, setPage }) => (
         <div>
            <div className="w-16 h-1 bg-[#D9C5A1] mb-6"></div>
            <h2 className="text-3xl font-serif text-[#0B1F38] mb-6">{t.home.teaser_title}</h2>
-           <p className="text-gray-600 text-lg leading-relaxed mb-8">{t.home.teaser_text}</p>
+           <p className="text-gray-600 text-2xl leading-relaxed mb-8">{t.home.teaser_text}</p>
            <button onClick={() => setPage('about')} className="flex items-center text-[#0B1F38] font-bold uppercase tracking-widest text-sm hover:text-[#D9C5A1] transition-colors">
              {t.home.learn_more} <ArrowRight size={16} className="ml-2" />
            </button>
         </div>
         <div className="grid grid-cols-2 gap-4">
-           <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover transform translate-y-8 shadow-xl" alt="Detail 1"/>
-           <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover shadow-xl" alt="Detail 2"/>
+           <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover transform translate-y-8 shadow-xl" alt="Baustelle 1"/>
+           <img src="https://images.unsplash.com/photo-1590496793907-03f10199ad5c?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover shadow-xl" alt="Baustelle 2"/>
         </div>
       </div>
     </div>
@@ -349,7 +397,7 @@ const About = ({ t }) => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
           <h3 className="text-2xl font-serif text-[#0B1F38] mb-6">{t.about.mission_title}</h3>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">{t.about.mission_text}</p>
+          <p className="text-gray-600 text-2xl leading-relaxed mb-6">{t.about.mission_text}</p>
           <div className="bg-[#F8F9FA] p-8 border-l-4 border-[#D9C5A1]">
             <p className="italic text-[#0B1F38] font-serif text-xl">"{t.about.quote}"</p>
           </div>
@@ -393,6 +441,8 @@ const Services = ({ t }) => {
     if (name === 'Target') return <Target size={32} />;
     if (name === 'TrendingUp') return <TrendingUp size={32} />;
     if (name === 'Briefcase') return <Briefcase size={32} />;
+    if (name === 'Users') return <Users size={32} />;
+    if (name === 'BarChart') return <BarChart size={32} />;
     return <Building size={32} />;
   };
 
@@ -403,27 +453,45 @@ const Services = ({ t }) => {
       <div className="container mx-auto px-6 py-20">
         <div className="grid grid-cols-1 gap-16">
           {t.services.details.map((service, index) => (
-            <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-start`}>
+            <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-start ${service.isUsp ? 'relative' : ''}`}>
+               {/* USP Badge */}
+               {service.isUsp && (
+                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                   <div className="bg-[#D9C5A1] text-[#0B1F38] px-8 py-3 text-sm font-bold uppercase tracking-widest shadow-2xl flex items-center gap-2">
+                     <Target size={18} />
+                     Unser USP
+                   </div>
+                 </div>
+               )}
+
                {/* Icon/Visual Side */}
-               <div className="w-full lg:w-1/3 bg-[#F8F9FA] p-10 flex flex-col items-center justify-center text-center border-t-4 border-[#D9C5A1] min-h-[250px]">
-                  <div className="text-[#0B1F38] mb-4 p-4 bg-white rounded-full shadow-md">
+               <div className={`w-full lg:w-1/3 p-10 flex flex-col items-center justify-center text-center min-h-[250px] ${
+                 service.isUsp
+                   ? 'bg-gradient-to-br from-[#0B1F38] to-[#1a3a5c] border-4 border-[#D9C5A1] shadow-2xl'
+                   : 'bg-[#F8F9FA] border-t-4 border-[#D9C5A1]'
+               }`}>
+                  <div className={`mb-4 p-4 rounded-full shadow-md ${
+                    service.isUsp ? 'bg-[#D9C5A1] text-[#0B1F38]' : 'text-[#0B1F38] bg-white'
+                  }`}>
                     {getIcon(service.icon)}
                   </div>
-                  <h3 className="text-xl font-serif text-[#0B1F38]">{service.title}</h3>
+                  <h3 className={`text-xl font-serif ${service.isUsp ? 'text-[#D9C5A1]' : 'text-[#0B1F38]'}`}>
+                    {service.title}
+                  </h3>
                </div>
-               
+
                {/* Content Side */}
-               <div className="w-full lg:w-2/3">
+               <div className={`w-full lg:w-2/3 ${service.isUsp ? 'border-2 border-[#D9C5A1] p-8 bg-gray-50' : ''}`}>
                   <h4 className="text-2xl font-serif text-[#0B1F38] mb-4 flex items-center">
                     <span className="text-[#D9C5A1] text-4xl mr-4 opacity-50 font-sans">0{index + 1}</span>
                     {service.title}
                   </h4>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                  <p className="text-gray-600 text-2xl leading-relaxed mb-6">
                     {service.text}
                   </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.points && service.points.map((point, i) => (
-                      <li key={i} className="flex items-center text-gray-700 text-sm font-medium">
+                      <li key={i} className="flex items-center text-gray-700 text-base font-medium">
                         <Check size={16} className="text-[#D9C5A1] mr-3 flex-shrink-0" />
                         {point}
                       </li>
@@ -476,18 +544,20 @@ const Why = ({ t }) => (
     <SectionHeader title={t.why.title} subtitle={t.why.intro} />
     
     <div className="container mx-auto px-6 py-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {t.why.usps.map((usp, index) => (
-          <div key={index} className="bg-gray-50 p-10 hover:bg-[#0B1F38] hover:text-white transition-all duration-300 group cursor-default">
-            <div className="text-[#D9C5A1] mb-6 transform group-hover:scale-110 transition-transform">
-              <BarChart size={40} />
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {t.why.usps.map((usp, index) => (
+            <div key={index} className="bg-white border-2 border-gray-200 p-8 hover:border-[#D9C5A1] hover:shadow-2xl transition-all duration-300 group cursor-default">
+              <div className="text-[#D9C5A1] mb-6 transform group-hover:scale-110 transition-transform">
+                <BarChart size={48} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-2xl font-serif mb-6 text-[#0B1F38]">{usp.title}</h3>
+              <p className="text-gray-600 text-xl leading-relaxed">
+                {usp.text}
+              </p>
             </div>
-            <h3 className="text-xl font-serif mb-4 group-hover:text-white text-[#0B1F38]">{usp.title}</h3>
-            <p className="text-gray-500 group-hover:text-gray-300 leading-relaxed">
-              {usp.text}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       
       {/* Visual Break */}
@@ -519,7 +589,7 @@ const Contact = ({ t }) => (
                 </div>
                 <div className="flex items-center space-x-4">
                   <Phone className="text-[#D9C5A1]" />
-                  <span className="text-gray-300">+41 44 123 45 67</span>
+                  <span className="text-gray-300">[ PLATZHALTER: Tel-Nr. ]</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Mail className="text-[#D9C5A1]" />
@@ -600,9 +670,9 @@ export default function App() {
       <style>{styles}</style>
 
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || currentPage !== 'home' ? 'bg-[#0B1F38] shadow-lg py-3' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || currentPage !== 'home' ? 'bg-[#0B1F38]/90 shadow-lg py-2' : 'bg-transparent py-4'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="cursor-pointer flex items-center gap-2 hover:opacity-90" onClick={() => setCurrentPage('home')}>
+          <div className="cursor-pointer flex items-center gap-3 hover:opacity-90" onClick={() => setCurrentPage('home')}>
              <Logo />
           </div>
 
@@ -612,7 +682,7 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => { setCurrentPage(item.id); window.scrollTo(0,0); }}
-                className={`text-xs uppercase tracking-widest font-medium transition-colors pb-1 border-b-2 ${currentPage === item.id ? 'text-[#D9C5A1] border-[#D9C5A1]' : 'text-white border-transparent hover:text-[#D9C5A1]'}`}
+                className={`text-sm uppercase tracking-widest font-medium transition-colors pb-1 border-b-2 ${currentPage === item.id ? 'text-[#D9C5A1] border-[#D9C5A1]' : 'text-white border-transparent hover:text-[#D9C5A1]'}`}
               >
                 {item.label}
               </button>
@@ -620,9 +690,10 @@ export default function App() {
           </div>
 
           {/* Lang Switch */}
-          <div className="hidden lg:flex items-center space-x-4 text-white text-xs">
+          <div className="hidden lg:flex items-center space-x-4 text-white text-sm">
+            <Globe size={18} className="text-[#D9C5A1]" />
             {['de', 'en', 'it'].map(l => (
-              <button 
+              <button
                 key={l}
                 onClick={() => setLang(l)}
                 className={`uppercase ${lang === l ? 'text-[#D9C5A1] font-bold underline' : 'opacity-70 hover:opacity-100'}`}
@@ -634,7 +705,7 @@ export default function App() {
 
           {/* Mobile Toggle */}
           <div className="lg:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X /> : <Menu />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </div>
         </div>
 
@@ -645,7 +716,7 @@ export default function App() {
                <button
                  key={item.id}
                  onClick={() => { setCurrentPage(item.id); setMobileMenuOpen(false); window.scrollTo(0,0); }}
-                 className={`text-lg uppercase tracking-widest ${currentPage === item.id ? 'text-[#D9C5A1]' : 'text-white'}`}
+                 className={`text-xl uppercase tracking-widest ${currentPage === item.id ? 'text-[#D9C5A1]' : 'text-white'}`}
                >
                  {item.label}
                </button>
