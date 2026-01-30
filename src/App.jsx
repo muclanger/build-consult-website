@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, Phone, Mail, MapPin, ChevronRight, Check, ArrowRight, Linkedin, Building, Briefcase, TrendingUp, Users, Target, BarChart } from 'lucide-react';
-import logoSvg from '/public/logo.svg';
+import { Menu, X, Globe, Phone, Mail, MapPin, ChevronRight, Check, ArrowRight, Linkedin, Target } from 'lucide-react';
+import logoSvg from '/logo.svg';
 
 // --- Styles Injection ---
 // Simulierte CSS-Umgebung. In Produktion sollte dies in eine CSS-Datei oder den Head.
@@ -18,18 +18,22 @@ const translations = {
   de: {
     nav: { home: 'Home', about: 'Über Uns', services: 'Dienstleistungen', method: 'Arbeitsweise', why: 'Warum wir?', contact: 'Kontakt' },
     home: {
-      title: '[ PLATZHALTER: Neue Headline einf\u00fcgen ]',
-      subtitle: '[ PLATZHALTER: Neue Subline einf\u00fcgen ]',
+      title: 'Ihr Premium-Partner f\u00fcr Real Estate Consulting & Projekt Management',
+      subtitle: 'Exzellenz in Bau und Immobilien',
       cta: 'Unsere Expertise',
-      teaser_title: 'Exzellenz in Immobilien',
-      teaser_text: 'Wir verbinden architektonische Vision mit \u00f6konomischer Pr\u00e4zision. Unser Anspruch ist es, bleibende Werte zu schaffen, die Generationen \u00fcberdauern.',
-      learn_more: 'Mehr erfahren'
+      teaser_title: 'Exzellenz in Bau und Immobilien',
+      teaser_text: 'Bauen ist komplex \u2013 wir machen es f\u00fcr Sie einfach.\n\nWir begleiten Sie zuverl\u00e4ssig durch Ihr Bauvorhaben. Mit Erfahrung, klarer F\u00fchrung und pers\u00f6nlicher Betreuung schaffen wir Werte, die Bestand haben.',
+      learn_more: 'Mehr erfahren',
+      usp2_title: 'Allround-Service / One-Stop-Shop',
+      usp2_subtitle: 'Ein Ansprechpartner f\u00fcr den gesamten Immobilienzyklus',
+      usp2_text: 'BUILD & CONSULT Real Estate GmbH bietet einen ganzheitlichen Allround-Service f\u00fcr Bau- und Immobilienprojekte.\n\nUnsere Auftraggeber profitieren von einer zentralen Ansprechperson, die sie \u00fcber den gesamten Lebenszyklus einer Immobilie begleitet \u2013 von der ersten Entscheidung bis zur nachhaltigen Nutzung oder Ver\u00e4usserung.',
+      usp2_points: ['Unterst\u00fctzung beim Ankauf von Immobilien oder Grundst\u00fccken', 'Projektierung und Entwicklung von Bau- und Sanierungsvorhaben', 'Bauabwicklung inkl. Bauherrenvertretung, Projekt- und Baumanagement', 'Inbetriebnahme und \u00dcbergabe', 'Immobilienverwaltung oder Begleitung beim Verkauf']
     },
     about: {
       title: 'Über Uns',
       intro: 'Build & Consult ist mehr als eine Beratung. Wir sind Ihr strategischer Partner in einer komplexen Immobilienwelt.',
       mission_title: 'Unsere Mission',
-      mission_text: '[ PLATZHALTER: Neuer Mission-Text einf\u00fcgen ]',
+      mission_text: 'Unsere Mission ist es, Bauherren Sicherheit und Verl\u00e4sslichkeit zu geben.\n\nWir schaffen klare Strukturen und f\u00fchren Bauprojekte im Fokus von Termin, Qualit\u00e4t und Kosten auch in anspruchsvollen Situationen planbar, kontrollierbar und erfolgreich zum Ziel.',
       quote: 'Qualit\u00e4t entsteht dort, wo Erfahrung auf Leidenschaft trifft.',
       team_title: 'Das Board',
       team_intro: 'Diskretion und persönliche Integrität stehen für uns an erster Stelle.',
@@ -40,47 +44,54 @@ const translations = {
       intro: 'Ein ganzheitliches Portfolio f\u00fcr anspruchsvolle Investoren und Eigent\u00fcmer.',
       details: [
         {
-          title: 'Bauherrenvertretung',
-          icon: 'Users',
-          text: '[ PLATZHALTER: Text f\u00fcr Bauherrenvertretung einf\u00fcgen ]',
-          points: ['Vertretung Ihrer Interessen', 'Koordination aller Beteiligten', 'Qualit\u00e4tssicherung', 'Termin\u00fcberwachung'],
-          image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-          title: 'Projektsteuerung',
-          icon: 'BarChart',
-          text: '[ PLATZHALTER: Text f\u00fcr Projektsteuerung einf\u00fcgen ]',
-          points: ['Kosten- und Termincontrolling', 'Steuerung von Planungsteams', 'Risikomanagement', 'Reporting'],
-          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-          title: 'Interim-Projektleitung',
+          title: 'Interim-Projektleitung & Baustellen-Turnaround',
           icon: 'Target',
-          text: '[ PLATZHALTER: Text f\u00fcr Interim-Projektleitung einf\u00fcgen - WICHTIG: Dies ist Ihr USP! ]',
+          text: 'Bauprojekte geraten aus unterschiedlichen Gr\u00fcnden in Schieflage: unklare Zust\u00e4ndigkeiten, Terminverzug, Kosten\u00fcberschreitungen oder fehlende F\u00fchrung auf der Baustelle.\n\nGenau hier setzen wir an.\n\nWir \u00fcbernehmen tempor\u00e4r und unmittelbar Verantwortung in Projekten mit erh\u00f6htem Handlungsbedarf \u2013 nicht nur beratend oder steuernd, sondern operativ und direkt vor Ort.',
           points: ['Sofortige Verf\u00fcgbarkeit', 'Operative Projektleitung', 'Krisenintervention', 'Tempor\u00e4re F\u00fchrung'],
-          image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop',
+          image: 'images/services/interim-projektleitung.jpg',
           isUsp: true
         },
         {
           title: 'Strategische Beratung',
           icon: 'Briefcase',
-          text: '[ PLATZHALTER: Text f\u00fcr Strategische Beratung einf\u00fcgen ]',
-          points: ['Standort- und Marktanalysen', 'Nutzungskonzepte', 'Portfolio-Strategie', 'ESG-Beratung'],
-          image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop'
+          text: 'Wir beraten Sie in strategischen Fragen rund um Immobilien und Bauprojekte. Auf Basis fundierter Analysen schaffen wir klare Entscheidungsgrundlagen und unterst\u00fctzen Sie bei der zielgerichteten Planung und Umsetzung.',
+          points: ['Standort- und Marktanalysen', 'Nutzungskonzepte', 'Portfolio-Strategie', 'Entscheidungsgrundlagen'],
+          image: 'images/services/strategische-beratung.jpg'
         },
         {
-          title: 'Projektentwicklung',
+          title: 'Bauherrenvertretung',
+          icon: 'Users',
+          text: 'Wir vertreten Ihre Interessen gegen\u00fcber allen Projektbeteiligten und sorgen f\u00fcr die Einhaltung von Kosten, Terminen und Qualit\u00e4t. Je nach Mandat \u00fcbernehmen wir Koordinations- und Entscheidungsaufgaben in Ihrem Namen.',
+          points: ['Vertretung Ihrer Interessen', 'Koordination aller Beteiligten', 'Qualit\u00e4tssicherung', 'Termin\u00fcberwachung'],
+          image: 'images/services/bauherrenvertretung.jpg'
+        },
+        {
+          title: 'Projektsteuerung',
+          icon: 'BarChart',
+          text: 'Wir strukturieren und steuern Ihr Projekt hinsichtlich Kosten, Terminen und Qualit\u00e4t. Durch strukturierte Organisation und transparentes Reporting stellen wir einen effizienten Projektablauf sicher.',
+          points: ['Kosten- und Termincontrolling', 'Steuerung von Planungsteams', 'Risikomanagement', 'Reporting'],
+          image: 'images/services/projektsteuerung.jpg'
+        },
+        {
+          title: 'Baumanagement',
           icon: 'Building',
-          text: '[ PLATZHALTER: Text f\u00fcr Projektentwicklung einf\u00fcgen ]',
-          points: ['Machbarkeitsstudien', 'Baurechtschaffung', 'Entwicklungskonzepte', 'Realisierung'],
-          image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop'
+          text: 'Wir \u00fcbernehmen die operative Organisation und Begleitung Ihres Bauvorhabens. Die Submission, Beauftragung und Koordination von Bauunternehmen (TU, GU oder GP ELT) und aller Beteiligten inkl. abschliessender Abnahmebegehungen. Immer im Fokus auf Kosten, Termine und Qualit\u00e4t.',
+          points: ['Submission & Beauftragung', 'Koordination vor Ort', 'Abnahmebegehungen', 'Kosten- & Terminkontrolle'],
+          image: 'images/services/baumanagement.jpg'
         },
         {
-          title: 'Weitere Dienstleistungen',
+          title: 'Ankauf / Verkauf',
           icon: 'TrendingUp',
-          text: '[ PLATZHALTER: Text f\u00fcr weitere Dienstleistungen einf\u00fcgen ]',
-          points: ['Asset Management', 'Transaktionsberatung', 'Due Diligence', 'Verhandlungsf\u00fchrung'],
-          image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'
+          text: 'Wir begleiten Sie beim An- und Verkauf von Immobilien, von der Analyse \u00fcber die Bewertung bis zur strukturierten Abwicklung.',
+          points: ['Immobilienbewertung', 'K\u00e4ufer-/Verk\u00e4uferberatung', 'Transaktionsbegleitung', 'Verhandlungsf\u00fchrung'],
+          image: 'images/services/ankauf-verkauf.jpg'
+        },
+        {
+          title: 'Gutachten im Bereich Haustechniken',
+          icon: 'BarChart',
+          text: 'Wir erstellen fundierte Gutachten zu Zustand, Funktion und Optimierungspotenzialen von haustechnischen Anlagen als Entscheidungsgrundlage f\u00fcr Betrieb und Investitionen.',
+          points: ['Zustandsanalyse', 'Funktionspr\u00fcfung', 'Optimierungsvorschl\u00e4ge', 'Investitionsplanung'],
+          image: 'images/services/gutachten-haustechnik.jpg'
         }
       ]
     },
@@ -88,30 +99,35 @@ const translations = {
       title: 'Unsere Arbeitsweise',
       intro: 'Strukturiert. Transparent. Zielorientiert. Unser Prozess garantiert Sicherheit in jeder Phase.',
       steps: [
-        { title: '1. Analyse', text: '[ PLATZHALTER: Schritt 1 - Analyse einf\u00fcgen ]' },
-        { title: '2. Strategie', text: '[ PLATZHALTER: Schritt 2 - Strategie einf\u00fcgen ]' },
-        { title: '3. Umsetzung', text: '[ PLATZHALTER: Schritt 3 - Umsetzung einf\u00fcgen ]' },
-        { title: '4. Controlling', text: '[ PLATZHALTER: Schritt 4 - Controlling einf\u00fcgen ]' },
-        { title: '5. Abschluss', text: '[ PLATZHALTER: Schritt 5 - Abschluss einf\u00fcgen ]' }
+        { title: '1. Analyse & Zieldefinition', text: 'Wir analysieren Ihre Ausgangslage, Ziele und Rahmenbedingungen.\n\nRisiken, Potenziale und Handlungsbedarf werden fr\u00fchzeitig erkannt und klar definiert.' },
+        { title: '2. Struktur & Planung', text: 'Wir schaffen eine saubere Projektstruktur mit klaren Zust\u00e4ndigkeiten, Terminprogrammen und Kosten\u00fcbersichten, als verl\u00e4ssliche Grundlage f\u00fcr alle weiteren Schritte.' },
+        { title: '3. Umsetzung & F\u00fchrung', text: 'Wir koordinieren und f\u00fchren alle Beteiligten.\n\nJe nach Mandat \u00fcbernehmen wir die operative Projekt- oder Baustellenleitung direkt vor Ort.' },
+        { title: '4. Controlling & Reporting', text: 'Kosten, Termine und Qualit\u00e4t werden laufend \u00fcberwacht.\n\nSie erhalten transparente Reportings und klare Entscheidungsgrundlagen.' },
+        { title: '5. Abschluss & \u00dcbergabe', text: 'Qualit\u00e4tssicherung, Abnahmen und saubere \u00dcbergabe \u2013 strukturiert, nachvollziehbar und vollst\u00e4ndig dokumentiert.' }
       ]
     },
     why: {
-      title: 'Warum Build & Consult?',
-      intro: 'In einem gesättigten Markt macht Qualität den Unterschied.',
-      quote: 'Exzellenz ist kein Akt, sondern eine Gewohnheit.',
+      title: 'Warum wir?',
+      intro: 'Weil Bauprojekte klare F\u00fchrung brauchen.',
+      main_text: 'Mit \u00fcber 60 Jahren Berufserfahrung im Bau- und Immobilienbereich bringen wir Struktur, Verantwortung und Verl\u00e4sslichkeit in jedes Projekt.\n\nWir steuern nicht nur \u2013 wir \u00fcbernehmen Verantwortung.\nBei Bedarf steigen wir direkt ein, \u00fcbernehmen die operative F\u00fchrung auf der Baustelle und bringen Projekte in Schieflage wieder unter Kontrolle.',
+      quote: 'Qualit\u00e4t entsteht dort, wo Erfahrung auf Leidenschaft trifft.',
       usps: [
-        { title: 'Interdisziplinäre Kompetenz', text: 'Wir vereinen kaufmännisches Wissen mit tiefem technischem Verständnis. Wir erkennen Risiken im Bauplan, bevor sie im Budget auftauchen.' },
-        { title: 'C-Level Netzwerk', text: 'Zugang zu Off-Market Deals und Entscheidungsträgern in der DACH-Region.' },
-        { title: 'Unabhängigkeit', text: 'Wir sind niemandem verpflichtet außer Ihrem Erfolg. Unsere Beratung ist neutral und objektiv.' }
-      ]
+        { title: 'Pers\u00f6nlicher Ansprechpartner', text: 'Sie haben durchg\u00e4ngig einen festen Ansprechpartner, der Ihr Projekt kennt und vorantreibt.' },
+        { title: 'Hands-on-Mentalit\u00e4t statt Theorie', text: 'Wir packen an und \u00fcbernehmen operative Verantwortung direkt vor Ort.' },
+        { title: 'Klare Entscheidungen & transparente Kommunikation', text: 'Sie wissen jederzeit, wo Ihr Projekt steht und was als n\u00e4chstes passiert.' },
+        { title: 'Alles aus einer Hand', text: 'Ein Ansprechpartner f\u00fcr alle Themen \u2013 von der Planung bis zur \u00dcbergabe.' },
+        { title: 'Flexible Unterst\u00fctzung', text: 'Von der Beratung bis zur Interim-Projekt- oder Bauleitung \u2013 genau so, wie Sie es brauchen.' }
+      ],
+      closing_text: 'BUILD & CONSULT Real Estate steht f\u00fcr Planungssicherheit, Qualit\u00e4t und Verl\u00e4sslichkeit.\n\nSprechen Sie uns an \u2013 wir k\u00fcmmern uns um Ihr Projekt.'
     },
     contact: {
       title: 'Kontakt',
-      text: 'Lassen Sie uns über Ihre Vision sprechen. Wir freuen uns auf den Dialog.',
+      text: 'Haben Sie Fragen, Anregungen oder m\u00f6chten Sie sich unverbindlich \u00fcber ein Bauvorhaben austauschen? Z\u00f6gern Sie nicht, uns zu kontaktieren.',
       contact_details: 'Kontaktdaten',
-      office_hours: 'Bürozeiten',
+      office_hours: 'B\u00fcrozeiten',
       office_hours_text: 'Mo - Fr: 09:00 - 18:00 Uhr',
-      address: '[ PLATZHALTER: Adresse Z\u00fcrich einf\u00fcgen ]',
+      address: 'Schulhausstrasse 58, 8002 Z\u00fcrich',
+      phone: '+41 44 558 44 52',
       form: { name: 'Name', email: 'E-Mail', message: 'Ihre Nachricht', send: 'Nachricht senden' }
     },
     footer: {
@@ -123,18 +139,22 @@ const translations = {
   en: {
     nav: { home: 'Home', about: 'About Us', services: 'Services', method: 'Approach', why: 'Why Us?', contact: 'Contact' },
     home: {
-      title: 'Creating Value. Building Futures.',
-      subtitle: 'Your premium partner for Real Estate Consulting & Development.',
+      title: 'Your Premium Partner for Real Estate Consulting & Project Management',
+      subtitle: 'Excellence in Construction and Real Estate',
       cta: 'Our Expertise',
-      teaser_title: 'Excellence in Real Estate',
-      teaser_text: 'We combine architectural vision with economic precision. Our mission is to create lasting value that endures for generations.',
-      learn_more: 'Learn More'
+      teaser_title: 'Excellence in Construction and Real Estate',
+      teaser_text: 'Construction is complex \u2013 we make it simple for you.\n\nWe reliably guide you through your construction project. With experience, clear leadership, and personal support, we create value that lasts.',
+      learn_more: 'Learn More',
+      usp2_title: 'Full-Service / One-Stop-Shop',
+      usp2_subtitle: 'One contact for the entire real estate lifecycle',
+      usp2_text: 'BUILD & CONSULT Real Estate GmbH offers comprehensive full-service solutions for construction and real estate projects.\n\nOur clients benefit from a central contact person who accompanies them through the entire lifecycle of a property \u2013 from the first decision to sustainable use or sale.',
+      usp2_points: ['Support for property or land acquisition', 'Planning and development of construction and renovation projects', 'Construction execution incl. owner representation, project and construction management', 'Commissioning and handover', 'Property management or support during sale']
     },
     about: {
       title: 'About Us',
       intro: 'Build & Consult is more than a consultancy. We are your strategic partner in a complex real estate world.',
       mission_title: 'Our Mission',
-      mission_text: 'We founded Build & Consult to bridge the gap between technical construction realization and strategic investment consulting. Architects and investors often speak different languages. We speak both.',
+      mission_text: 'Our mission is to provide clients with security and reliability.\n\nWe create clear structures and manage construction projects with a focus on deadlines, quality, and costs, making them plannable, controllable, and successfully completed even in challenging situations.',
       quote: 'Quality emerges where experience meets passion.',
       team_title: 'The Board',
       team_intro: 'Discretion and personal integrity are our top priorities.',
@@ -145,28 +165,54 @@ const translations = {
       intro: 'A comprehensive portfolio for discerning investors and owners.',
       details: [
         {
-          title: 'Project Development',
-          icon: 'Building',
-          text: 'We accompany your project from land acquisition to turnkey handover. Our focus is on sustainable architecture and cost efficiency.',
-          points: ['Feasibility Studies & Zoning', 'Planning Team Management', 'Cost & Schedule Control', 'Quality Assurance']
+          title: 'Interim Project Management & Construction Site Turnaround',
+          icon: 'Target',
+          text: 'Construction projects face challenges for various reasons: unclear responsibilities, schedule delays, cost overruns, or lack of on-site leadership.\n\nThis is where we step in.\n\nWe assume temporary and immediate responsibility in projects requiring urgent action \u2013 not just advisory or supervisory, but operationally and directly on-site.',
+          points: ['Immediate Availability', 'Operational Project Management', 'Crisis Intervention', 'Temporary Leadership'],
+          image: 'images/services/interim-projektleitung.jpg',
+          isUsp: true
         },
         {
           title: 'Strategic Consulting',
-          icon: 'Target',
-          text: 'Investment decisions require solid data. We deliver market analyses and strategy papers that serve as a reliable decision-making basis.',
-          points: ['Location & Market Analysis', 'Usage Concepts', 'Portfolio Strategy', 'ESG Consulting']
-        },
-        {
-          title: 'Asset Management',
-          icon: 'TrendingUp',
-          text: 'Real estate are living organisms. We optimize portfolios, unlock rental potential and ensure sustainable value preservation.',
-          points: ['Leasing Management', 'Maintenance Strategies', 'Capex Measures', 'Reporting']
-        },
-        {
-          title: 'Transaction Advisory',
           icon: 'Briefcase',
-          text: 'Whether buying or selling: We structure processes professionally and discreetly to achieve the optimal result for you.',
-          points: ['Acquisition Due Diligence', 'Sale Structuring', 'Data Room Management', 'Negotiation Management']
+          text: 'We advise you on strategic matters related to real estate and construction projects. Based on sound analysis, we create clear decision-making foundations and support you in targeted planning and implementation.',
+          points: ['Location & Market Analysis', 'Usage Concepts', 'Portfolio Strategy', 'Decision-Making Foundations'],
+          image: 'images/services/strategische-beratung.jpg'
+        },
+        {
+          title: 'Owner\'s Representation',
+          icon: 'Users',
+          text: 'We represent your interests to all project stakeholders and ensure compliance with costs, schedules, and quality. Depending on the mandate, we assume coordination and decision-making responsibilities on your behalf.',
+          points: ['Representation of Your Interests', 'Coordination of All Stakeholders', 'Quality Assurance', 'Schedule Monitoring'],
+          image: 'images/services/bauherrenvertretung.jpg'
+        },
+        {
+          title: 'Project Control',
+          icon: 'BarChart',
+          text: 'We structure and control your project regarding costs, schedules, and quality. Through structured organization and transparent reporting, we ensure efficient project execution.',
+          points: ['Cost & Schedule Control', 'Planning Team Management', 'Risk Management', 'Reporting'],
+          image: 'images/services/projektsteuerung.jpg'
+        },
+        {
+          title: 'Construction Management',
+          icon: 'Building',
+          text: 'We handle the operational organization and support of your construction project. Tendering, contracting, and coordination of construction companies (subcontractors, general contractors, or MEP general planners) and all stakeholders, including final acceptance inspections. Always focused on costs, schedules, and quality.',
+          points: ['Tendering & Contracting', 'On-Site Coordination', 'Acceptance Inspections', 'Cost & Schedule Control'],
+          image: 'images/services/baumanagement.jpg'
+        },
+        {
+          title: 'Acquisition / Sale',
+          icon: 'TrendingUp',
+          text: 'We support you in the purchase and sale of real estate, from analysis to valuation to structured execution.',
+          points: ['Property Valuation', 'Buyer/Seller Consulting', 'Transaction Support', 'Negotiation Management'],
+          image: 'images/services/ankauf-verkauf.jpg'
+        },
+        {
+          title: 'Technical Building Systems Assessments',
+          icon: 'BarChart',
+          text: 'We provide comprehensive assessments of the condition, function, and optimization potential of building technical systems as a decision-making basis for operation and investments.',
+          points: ['Condition Analysis', 'Function Testing', 'Optimization Recommendations', 'Investment Planning'],
+          image: 'images/services/gutachten-haustechnik.jpg'
         }
       ]
     },
@@ -174,29 +220,35 @@ const translations = {
       title: 'Our Approach',
       intro: 'Structured. Transparent. Goal-oriented. Our process guarantees security at every stage.',
       steps: [
-        { title: '1. Analysis', text: 'Every mandate begins with listening. We analyze the current situation, market conditions and your personal goals.' },
-        { title: '2. Strategy', text: 'Based on the analysis, we develop tailor-made solutions – with clear milestones and budgets.' },
-        { title: '3. Implementation', text: 'We take responsibility. With a hands-on mentality, we implement the strategy and manage all stakeholders.' },
-        { title: '4. Controlling', text: 'Trust is good, control is better. Through transparent reporting, you always know where your project stands.' }
+        { title: '1. Analysis & Goal Definition', text: 'We analyze your initial situation, goals, and framework conditions.\n\nRisks, potentials, and action requirements are identified early and clearly defined.' },
+        { title: '2. Structure & Planning', text: 'We create a clear project structure with defined responsibilities, schedules, and cost overviews as a reliable foundation for all further steps.' },
+        { title: '3. Implementation & Leadership', text: 'We coordinate and lead all stakeholders.\n\nDepending on the mandate, we assume operational project or construction site management directly on-site.' },
+        { title: '4. Controlling & Reporting', text: 'Costs, schedules, and quality are continuously monitored.\n\nYou receive transparent reports and clear decision-making foundations.' },
+        { title: '5. Completion & Handover', text: 'Quality assurance, acceptance, and clean handover \u2013 structured, traceable, and fully documented.' }
       ]
     },
     why: {
-      title: 'Why Build & Consult?',
-      intro: 'In a saturated market, quality makes the difference.',
-      quote: 'Excellence is not an act, but a habit.',
+      title: 'Why Us?',
+      intro: 'Because construction projects require clear leadership.',
+      main_text: 'With over 60 years of professional experience in construction and real estate, we bring structure, responsibility, and reliability to every project.\n\nWe don\'t just manage \u2013 we take responsibility.\nWhen needed, we step in directly, assume operational leadership on-site, and bring struggling projects back under control.',
+      quote: 'Quality emerges where experience meets passion.',
       usps: [
-        { title: 'Interdisciplinary Expertise', text: 'We combine commercial knowledge with deep technical understanding. We identify risks in construction plans before they appear in the budget.' },
-        { title: 'C-Level Network', text: 'Access to off-market deals and decision-makers in the DACH region.' },
-        { title: 'Independence', text: 'We are committed to nothing but your success. Our advice is neutral and objective.' }
-      ]
+        { title: 'Personal Contact', text: 'You have a dedicated contact person throughout who knows your project and drives it forward.' },
+        { title: 'Hands-On Mentality Instead of Theory', text: 'We roll up our sleeves and take operational responsibility directly on-site.' },
+        { title: 'Clear Decisions & Transparent Communication', text: 'You always know where your project stands and what happens next.' },
+        { title: 'Everything from One Source', text: 'One contact for all topics \u2013 from planning to handover.' },
+        { title: 'Flexible Support', text: 'From consulting to interim project or construction management \u2013 exactly as you need it.' }
+      ],
+      closing_text: 'BUILD & CONSULT Real Estate stands for planning security, quality, and reliability.\n\nContact us \u2013 we\'ll take care of your project.'
     },
     contact: {
       title: 'Contact',
-      text: 'Let\'s talk about your vision. We look forward to the dialogue.',
+      text: 'Do you have questions, suggestions, or would you like to discuss a construction project without obligation? Don\'t hesitate to contact us.',
       contact_details: 'Contact Details',
       office_hours: 'Office Hours',
       office_hours_text: 'Mon - Fri: 09:00 AM - 06:00 PM',
-      address: 'Sample Street 1, 8001 Zurich',
+      address: 'Schulhausstrasse 58, 8002 Zurich',
+      phone: '+41 44 558 44 52',
       form: { name: 'Name', email: 'Email', message: 'Your Message', send: 'Send Message' }
     },
     footer: {
@@ -208,18 +260,22 @@ const translations = {
   it: {
     nav: { home: 'Home', about: 'Chi siamo', services: 'Servizi', method: 'Metodo', why: 'Perché noi?', contact: 'Contatto' },
     home: {
-      title: 'Creare Valore. Costruire il Futuro.',
-      subtitle: 'Il vostro partner premium per Real Estate Consulting & Development.',
+      title: 'Il Vostro Partner Premium per Real Estate Consulting & Project Management',
+      subtitle: 'Eccellenza in Edilizia e Immobiliare',
       cta: 'La Nostra Expertise',
-      teaser_title: 'Eccellenza nel Settore Immobiliare',
-      teaser_text: 'Combiniamo visione architettonica con precisione economica. La nostra missione è creare valore duraturo che duri generazioni.',
-      learn_more: 'Scopri di più'
+      teaser_title: 'Eccellenza in Edilizia e Immobiliare',
+      teaser_text: 'L\'edilizia \u00e8 complessa \u2013 noi la rendiamo semplice per voi.\n\nVi accompagniamo in modo affidabile attraverso il vostro progetto di costruzione. Con esperienza, leadership chiara e assistenza personale, creiamo valore che dura.',
+      learn_more: 'Scopri di pi\u00f9',
+      usp2_title: 'Servizio Completo / One-Stop-Shop',
+      usp2_subtitle: 'Un contatto per l\'intero ciclo di vita immobiliare',
+      usp2_text: 'BUILD & CONSULT Real Estate GmbH offre un servizio completo a 360 gradi per progetti di costruzione e immobiliari.\n\nI nostri clienti beneficiano di un contatto centrale che li accompagna attraverso l\'intero ciclo di vita di un immobile \u2013 dalla prima decisione all\'uso sostenibile o alla vendita.',
+      usp2_points: ['Supporto per l\'acquisto di immobili o terreni', 'Progettazione e sviluppo di progetti di costruzione e ristrutturazione', 'Esecuzione costruzione incl. rappresentanza committente, gestione progetto e costruzione', 'Messa in servizio e consegna', 'Gestione immobiliare o supporto durante la vendita']
     },
     about: {
       title: 'Chi Siamo',
       intro: 'Build & Consult è più di una consulenza. Siamo il vostro partner strategico in un mondo immobiliare complesso.',
       mission_title: 'La Nostra Missione',
-      mission_text: 'Abbiamo fondato Build & Consult per colmare il divario tra realizzazione tecnica di costruzione e consulenza strategica sugli investimenti. Architetti e investitori spesso parlano lingue diverse. Noi parliamo entrambe.',
+      mission_text: 'La nostra missione \u00e8 fornire ai clienti sicurezza e affidabilit\u00e0.\n\nCreiamo strutture chiare e gestiamo progetti di costruzione con un focus su scadenze, qualit\u00e0 e costi, rendendoli pianificabili, controllabili e portati a termine con successo anche in situazioni impegnative.',
       quote: 'La qualità nasce dove l\'esperienza incontra la passione.',
       team_title: 'Il Board',
       team_intro: 'Discrezione e integrità personale sono le nostre massime priorità.',
@@ -230,28 +286,54 @@ const translations = {
       intro: 'Un portafoglio completo per investitori e proprietari esigenti.',
       details: [
         {
-          title: 'Sviluppo Progetti',
-          icon: 'Building',
-          text: 'Accompagniamo il vostro progetto dall\'acquisizione del terreno alla consegna chiavi in mano. Il nostro focus è su architettura sostenibile ed efficienza dei costi.',
-          points: ['Studi di Fattibilità & Zonizzazione', 'Gestione Team di Pianificazione', 'Controllo Costi e Tempi', 'Assicurazione Qualità']
+          title: 'Gestione Progetti Interim & Turnaround Cantieri',
+          icon: 'Target',
+          text: 'I progetti di costruzione affrontano difficolt\u00e0 per vari motivi: responsabilit\u00e0 poco chiare, ritardi nei tempi, superamenti dei costi o mancanza di leadership in cantiere.\n\n\u00c8 qui che interveniamo.\n\nAssumiamo responsabilit\u00e0 temporanea e immediata in progetti che richiedono azione urgente \u2013 non solo consultiva o di supervisione, ma operativa e direttamente in loco.',
+          points: ['Disponibilit\u00e0 Immediata', 'Gestione Operativa del Progetto', 'Intervento in Situazioni di Crisi', 'Leadership Temporanea'],
+          image: 'images/services/interim-projektleitung.jpg',
+          isUsp: true
         },
         {
           title: 'Consulenza Strategica',
-          icon: 'Target',
-          text: 'Le decisioni di investimento richiedono dati solidi. Forniamo analisi di mercato e documenti strategici che servono come base decisionale affidabile.',
-          points: ['Analisi Posizione e Mercato', 'Concetti di Utilizzo', 'Strategia di Portfolio', 'Consulenza ESG']
-        },
-        {
-          title: 'Asset Management',
-          icon: 'TrendingUp',
-          text: 'Gli immobili sono organismi viventi. Ottimizziamo i portafogli, sbloccamo il potenziale di affitto e garantiamo la conservazione sostenibile del valore.',
-          points: ['Gestione Locazioni', 'Strategie di Manutenzione', 'Misure Capex', 'Reporting']
-        },
-        {
-          title: 'Consulenza Transazioni',
           icon: 'Briefcase',
-          text: 'Che si tratti di acquisto o vendita: Strutturiamo i processi professionalmente e discretamente per ottenere il risultato ottimale per voi.',
-          points: ['Due Diligence Acquisizione', 'Strutturazione Vendita', 'Gestione Data Room', 'Gestione Negoziazioni']
+          text: 'Vi consigliamo su questioni strategiche relative a immobili e progetti di costruzione. Sulla base di analisi fondate, creiamo basi decisionali chiare e vi supportiamo nella pianificazione e implementazione mirate.',
+          points: ['Analisi di Posizione e Mercato', 'Concetti di Utilizzo', 'Strategia di Portfolio', 'Basi Decisionali'],
+          image: 'images/services/strategische-beratung.jpg'
+        },
+        {
+          title: 'Rappresentanza del Committente',
+          icon: 'Users',
+          text: 'Rappresentiamo i vostri interessi verso tutti gli stakeholder del progetto e garantiamo il rispetto di costi, scadenze e qualit\u00e0. A seconda del mandato, assumiamo responsabilit\u00e0 di coordinamento e decisione per vostro conto.',
+          points: ['Rappresentanza dei Vostri Interessi', 'Coordinamento di Tutti gli Stakeholder', 'Assicurazione Qualit\u00e0', 'Monitoraggio Scadenze'],
+          image: 'images/services/bauherrenvertretung.jpg'
+        },
+        {
+          title: 'Controllo Progetto',
+          icon: 'BarChart',
+          text: 'Strutturiamo e controlliamo il vostro progetto per quanto riguarda costi, scadenze e qualit\u00e0. Attraverso un\'organizzazione strutturata e reporting trasparente, garantiamo un\'esecuzione efficiente del progetto.',
+          points: ['Controllo Costi e Scadenze', 'Gestione Team di Pianificazione', 'Gestione Rischi', 'Reporting'],
+          image: 'images/services/projektsteuerung.jpg'
+        },
+        {
+          title: 'Gestione Costruzione',
+          icon: 'Building',
+          text: 'Gestiamo l\'organizzazione operativa e il supporto del vostro progetto di costruzione. Gare, contratti e coordinamento di imprese di costruzione (subappaltatori, general contractor o general planner MEP) e tutti gli stakeholder, incluse le ispezioni finali di accettazione. Sempre con focus su costi, scadenze e qualit\u00e0.',
+          points: ['Gare & Contratti', 'Coordinamento in Loco', 'Ispezioni di Accettazione', 'Controllo Costi e Scadenze'],
+          image: 'images/services/baumanagement.jpg'
+        },
+        {
+          title: 'Acquisizione / Vendita',
+          icon: 'TrendingUp',
+          text: 'Vi supportiamo nell\'acquisto e vendita di immobili, dall\'analisi alla valutazione fino all\'esecuzione strutturata.',
+          points: ['Valutazione Immobiliare', 'Consulenza Acquirente/Venditore', 'Supporto Transazioni', 'Gestione Negoziazioni'],
+          image: 'images/services/ankauf-verkauf.jpg'
+        },
+        {
+          title: 'Perizie Sistemi Tecnici Edificio',
+          icon: 'BarChart',
+          text: 'Forniamo perizie complete sullo stato, la funzione e il potenziale di ottimizzazione dei sistemi tecnici dell\'edificio come base decisionale per operazione e investimenti.',
+          points: ['Analisi dello Stato', 'Test di Funzionamento', 'Raccomandazioni di Ottimizzazione', 'Pianificazione Investimenti'],
+          image: 'images/services/gutachten-haustechnik.jpg'
         }
       ]
     },
@@ -259,29 +341,35 @@ const translations = {
       title: 'Il Nostro Metodo',
       intro: 'Strutturato. Trasparente. Orientato agli obiettivi. Il nostro processo garantisce sicurezza in ogni fase.',
       steps: [
-        { title: '1. Analisi', text: 'Ogni mandato inizia con l\'ascolto. Analizziamo la situazione attuale, le condizioni di mercato e i vostri obiettivi personali.' },
-        { title: '2. Strategia', text: 'Sulla base dell\'analisi, sviluppiamo soluzioni su misura – con traguardi e budget chiari.' },
-        { title: '3. Implementazione', text: 'Ci assumiamo la responsabilità. Con mentalità pratica, implementiamo la strategia e gestiamo tutti gli stakeholder.' },
-        { title: '4. Controllo', text: 'Fidarsi è bene, controllare è meglio. Attraverso un reporting trasparente, sapete sempre a che punto si trova il vostro progetto.' }
+        { title: '1. Analisi & Definizione Obiettivi', text: 'Analizziamo la vostra situazione iniziale, gli obiettivi e le condizioni quadro.\n\nRischi, potenziali e necessit\u00e0 d\'azione vengono identificati precocemente e definiti chiaramente.' },
+        { title: '2. Struttura & Pianificazione', text: 'Creiamo una struttura progettuale chiara con responsabilit\u00e0 definite, programmi temporali e panoramiche dei costi come base affidabile per tutti i passaggi successivi.' },
+        { title: '3. Implementazione & Leadership', text: 'Coordiniamo e guidiamo tutti gli stakeholder.\n\nA seconda del mandato, assumiamo la gestione operativa del progetto o del cantiere direttamente in loco.' },
+        { title: '4. Controllo & Reporting', text: 'Costi, scadenze e qualit\u00e0 vengono monitorati continuamente.\n\nRicevete report trasparenti e basi decisionali chiare.' },
+        { title: '5. Completamento & Consegna', text: 'Assicurazione qualit\u00e0, accettazioni e consegna pulita \u2013 strutturata, tracciabile e completamente documentata.' }
       ]
     },
     why: {
-      title: 'Perché Build & Consult?',
-      intro: 'In un mercato saturo, la qualità fa la differenza.',
-      quote: 'L\'eccellenza non è un atto, ma un\'abitudine.',
+      title: 'Perch\u00e9 noi?',
+      intro: 'Perch\u00e9 i progetti di costruzione richiedono una leadership chiara.',
+      main_text: 'Con oltre 60 anni di esperienza professionale nel settore edile e immobiliare, portiamo struttura, responsabilit\u00e0 e affidabilit\u00e0 in ogni progetto.\n\nNon gestiamo solo \u2013 ci assumiamo la responsabilit\u00e0.\nQuando necessario, interveniamo direttamente, assumiamo la leadership operativa in loco e riportiamo i progetti in difficolt\u00e0 sotto controllo.',
+      quote: 'La qualit\u00e0 nasce dove l\'esperienza incontra la passione.',
       usps: [
-        { title: 'Competenza Interdisciplinare', text: 'Combiniamo conoscenze commerciali con una profonda comprensione tecnica. Identifichiamo i rischi nei piani di costruzione prima che appaiano nel budget.' },
-        { title: 'Network C-Level', text: 'Accesso a offerte off-market e decisori nella regione DACH.' },
-        { title: 'Indipendenza', text: 'Non siamo impegnati verso nulla se non il vostro successo. La nostra consulenza è neutrale e obiettiva.' }
-      ]
+        { title: 'Contatto Personale', text: 'Avete un contatto dedicato durante tutto il percorso che conosce il vostro progetto e lo porta avanti.' },
+        { title: 'Mentalit\u00e0 Pratica Invece di Teoria', text: 'Ci rimbocchiamo le maniche e assumiamo responsabilit\u00e0 operativa direttamente in loco.' },
+        { title: 'Decisioni Chiare & Comunicazione Trasparente', text: 'Sapete sempre a che punto si trova il vostro progetto e cosa succede dopo.' },
+        { title: 'Tutto da un\'Unica Fonte', text: 'Un contatto per tutti i temi \u2013 dalla pianificazione alla consegna.' },
+        { title: 'Supporto Flessibile', text: 'Dalla consulenza alla gestione progetti interim o costruzione \u2013 esattamente come vi serve.' }
+      ],
+      closing_text: 'BUILD & CONSULT Real Estate rappresenta sicurezza di pianificazione, qualit\u00e0 e affidabilit\u00e0.\n\nContattateci \u2013 ci occuperemo del vostro progetto.'
     },
     contact: {
       title: 'Contatto',
-      text: 'Parliamo della vostra visione. Non vediamo l\'ora di dialogare.',
+      text: 'Avete domande, suggerimenti o volete discutere di un progetto di costruzione senza impegno? Non esitate a contattarci.',
       contact_details: 'Dati di Contatto',
       office_hours: 'Orari d\'Ufficio',
       office_hours_text: 'Lun - Ven: 09:00 - 18:00',
-      address: 'Via Esempio 1, 8001 Zurigo',
+      address: 'Schulhausstrasse 58, 8002 Zurigo',
+      phone: '+41 44 558 44 52',
       form: { name: 'Nome', email: 'Email', message: 'Il Vostro Messaggio', send: 'Invia Messaggio' }
     },
     footer: {
@@ -296,7 +384,7 @@ const translations = {
 
 const Logo = () => (
   <div className="flex items-center justify-center select-none">
-    <img src={logoSvg} alt="BUILD & CONSULT" className="h-16 w-auto" />
+    <img src={logoSvg} alt="BUILD & CONSULT" className="h-32 w-auto" />
   </div>
 );
 
@@ -369,6 +457,49 @@ const Home = ({ t, setPage }) => (
       </div>
     </div>
 
+    {/* USP Banner 2 - Allround-Service */}
+    <div className="bg-white py-20">
+      <div className="container mx-auto px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-block bg-[#D9C5A1] text-[#0B1F38] px-6 py-2 text-sm font-bold uppercase tracking-widest mb-6 shadow-xl">
+              Unser USP
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif text-[#0B1F38] mb-6 leading-tight">
+              {t.home.usp2_title}
+            </h2>
+            <p className="text-xl text-gray-600 mb-4 leading-relaxed">
+              {t.home.usp2_subtitle}
+            </p>
+          </div>
+
+          <div className="bg-[#F8F9FA] p-10 border-l-4 border-[#D9C5A1] mb-8">
+            <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+              {t.home.usp2_text}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {t.home.usp2_points && t.home.usp2_points.map((point, i) => (
+              <div key={i} className="flex items-start bg-white p-4 shadow-sm border-l-2 border-[#D9C5A1]">
+                <Check size={20} className="text-[#D9C5A1] mr-3 flex-shrink-0 mt-1" />
+                <span className="text-gray-700">{point}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <button
+              onClick={() => setPage('services')}
+              className="bg-[#D9C5A1] text-[#0B1F38] px-10 py-4 uppercase tracking-[0.15em] text-sm font-bold hover:bg-[#0B1F38] hover:text-white transition-all duration-300 shadow-lg inline-flex items-center gap-3"
+            >
+              Mehr erfahren <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     {/* Teaser Section */}
     <div className="py-24 bg-white">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -382,7 +513,7 @@ const Home = ({ t, setPage }) => (
         </div>
         <div className="grid grid-cols-2 gap-4">
            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover transform translate-y-8 shadow-xl" alt="Baustelle 1"/>
-           <img src="https://images.unsplash.com/photo-1590496793907-03f10199ad5c?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover shadow-xl" alt="Baustelle 2"/>
+           <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover shadow-xl" alt="Baustelle 2"/>
         </div>
       </div>
     </div>
@@ -435,17 +566,6 @@ const About = ({ t }) => (
 );
 
 const Services = ({ t }) => {
-  // Mapping icons to string names from lucide
-  const getIcon = (name) => {
-    if (name === 'Building') return <Building size={32} />;
-    if (name === 'Target') return <Target size={32} />;
-    if (name === 'TrendingUp') return <TrendingUp size={32} />;
-    if (name === 'Briefcase') return <Briefcase size={32} />;
-    if (name === 'Users') return <Users size={32} />;
-    if (name === 'BarChart') return <BarChart size={32} />;
-    return <Building size={32} />;
-  };
-
   return (
     <div className="animate-fadeIn pb-20">
       <SectionHeader title={t.services.title} subtitle={t.services.intro} />
@@ -464,20 +584,24 @@ const Services = ({ t }) => {
                  </div>
                )}
 
-               {/* Icon/Visual Side */}
-               <div className={`w-full lg:w-1/3 p-10 flex flex-col items-center justify-center text-center min-h-[250px] ${
+               {/* Image Side */}
+               <div className={`w-full lg:w-1/3 relative overflow-hidden ${
                  service.isUsp
-                   ? 'bg-gradient-to-br from-[#0B1F38] to-[#1a3a5c] border-4 border-[#D9C5A1] shadow-2xl'
-                   : 'bg-[#F8F9FA] border-t-4 border-[#D9C5A1]'
+                   ? 'border-4 border-[#D9C5A1] shadow-2xl'
+                   : 'border-t-4 border-[#D9C5A1] shadow-lg'
                }`}>
-                  <div className={`mb-4 p-4 rounded-full shadow-md ${
-                    service.isUsp ? 'bg-[#D9C5A1] text-[#0B1F38]' : 'text-[#0B1F38] bg-white'
-                  }`}>
-                    {getIcon(service.icon)}
-                  </div>
-                  <h3 className={`text-xl font-serif ${service.isUsp ? 'text-[#D9C5A1]' : 'text-[#0B1F38]'}`}>
-                    {service.title}
-                  </h3>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover min-h-[300px]"
+                  />
+                  {service.isUsp && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F38]/80 to-transparent flex items-end justify-center p-6">
+                      <h3 className="text-xl font-serif text-[#D9C5A1] text-center">
+                        {service.title}
+                      </h3>
+                    </div>
+                  )}
                </div>
 
                {/* Content Side */}
@@ -542,24 +666,44 @@ const Method = ({ t }) => (
 const Why = ({ t }) => (
   <div className="animate-fadeIn pb-20">
     <SectionHeader title={t.why.title} subtitle={t.why.intro} />
-    
+
     <div className="container mx-auto px-6 py-20">
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Main Text Section */}
+        {t.why.main_text && (
+          <div className="mb-16 text-center">
+            <p className="text-gray-600 text-2xl leading-relaxed whitespace-pre-line max-w-3xl mx-auto">
+              {t.why.main_text}
+            </p>
+          </div>
+        )}
+
+        {/* USPs Section */}
+        <h3 className="text-3xl font-serif text-[#0B1F38] mb-10 text-center">Ihre Vorteile:</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {t.why.usps.map((usp, index) => (
-            <div key={index} className="bg-white border-2 border-gray-200 p-8 hover:border-[#D9C5A1] hover:shadow-2xl transition-all duration-300 group cursor-default">
-              <div className="text-[#D9C5A1] mb-6 transform group-hover:scale-110 transition-transform">
-                <BarChart size={48} strokeWidth={1.5} />
+            <div key={index} className="bg-white border-2 border-gray-200 p-6 hover:border-[#D9C5A1] hover:shadow-2xl transition-all duration-300 group cursor-default">
+              <div className="flex items-start mb-4">
+                <Check size={24} className="text-[#D9C5A1] mr-3 flex-shrink-0 mt-1" />
+                <h3 className="text-lg font-bold text-[#0B1F38]">{usp.title}</h3>
               </div>
-              <h3 className="text-2xl font-serif mb-6 text-[#0B1F38]">{usp.title}</h3>
-              <p className="text-gray-600 text-xl leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed pl-9">
                 {usp.text}
               </p>
             </div>
           ))}
         </div>
+
+        {/* Closing Text */}
+        {t.why.closing_text && (
+          <div className="text-center bg-[#F8F9FA] p-10 border-l-4 border-[#D9C5A1]">
+            <p className="text-gray-700 text-2xl leading-relaxed font-medium whitespace-pre-line">
+              {t.why.closing_text}
+            </p>
+          </div>
+        )}
       </div>
-      
+
       {/* Visual Break */}
       <div className="mt-20 relative h-[400px] w-full">
          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Skyline" />
@@ -589,7 +733,7 @@ const Contact = ({ t }) => (
                 </div>
                 <div className="flex items-center space-x-4">
                   <Phone className="text-[#D9C5A1]" />
-                  <span className="text-gray-300">[ PLATZHALTER: Tel-Nr. ]</span>
+                  <span className="text-gray-300">{t.contact.phone}</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Mail className="text-[#D9C5A1]" />
