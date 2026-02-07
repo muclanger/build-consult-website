@@ -31,9 +31,11 @@ const translations = {
     },
     about: {
       title: 'Über Uns',
-      intro: 'Build & Consult ist mehr als eine Beratung. Wir sind Ihr strategischer Partner in einer komplexen Immobilienwelt.',
+      intro: 'BUILD & CONSULT ist mehr als eine Beratung. Wir sind Ihr strategischer Partner in einer komplexen Immobilienwelt.',
       mission_title: 'Unsere Mission',
       mission_text: 'Unsere Mission ist es, Bauherren Sicherheit und Verl\u00e4sslichkeit zu geben.\n\nWir schaffen klare Strukturen und f\u00fchren Bauprojekte im Fokus von Termin, Qualit\u00e4t und Kosten auch in anspruchsvollen Situationen planbar, kontrollierbar und erfolgreich zum Ziel.',
+      network_title: 'Unser Netzwerk',
+      network_text: 'BUILD & CONSULT arbeitet mit einem bew\u00e4hrten Netzwerk aus spezialisierten Partnerfirmen zusammen.\nJe nach Projektanforderung binden wir gezielt erfahrene Fachplaner, Unternehmer und Dienstleister ein.\n\nUnsere Leistungen k\u00f6nnen dabei ganzheitlich aus einer Hand oder modular als einzelne Leistungspakete erbracht werden.\nAuf Wunsch vermitteln wir unsere Partnerfirmen auch direkt und unabh\u00e4ngig, transparent und ohne Bindung.\n\nSo erhalten unsere Auftraggeber genau die Unterst\u00fctzung, die sie ben\u00f6tigen \u2013 flexibel, effizient und bedarfsgerecht.',
       quote: 'Qualit\u00e4t entsteht dort, wo Erfahrung auf Leidenschaft trifft.',
       team_title: 'Das Board',
       team_intro: 'Diskretion und persönliche Integrität stehen für uns an erster Stelle.',
@@ -152,9 +154,11 @@ const translations = {
     },
     about: {
       title: 'About Us',
-      intro: 'Build & Consult is more than a consultancy. We are your strategic partner in a complex real estate world.',
+      intro: 'BUILD & CONSULT is more than a consultancy. We are your strategic partner in a complex real estate world.',
       mission_title: 'Our Mission',
       mission_text: 'Our mission is to provide clients with security and reliability.\n\nWe create clear structures and manage construction projects with a focus on deadlines, quality, and costs, making them plannable, controllable, and successfully completed even in challenging situations.',
+      network_title: 'Our Network',
+      network_text: 'BUILD & CONSULT works with a proven network of specialized partner companies.\nDepending on project requirements, we strategically engage experienced specialist planners, contractors, and service providers.\n\nOur services can be delivered holistically as a one-stop solution or modularly as individual service packages.\nIf desired, we also arrange our partner companies directly and independently, transparently and without obligation.\n\nThis way, our clients receive exactly the support they need \u2013 flexible, efficient, and tailored to their needs.',
       quote: 'Quality emerges where experience meets passion.',
       team_title: 'The Board',
       team_intro: 'Discretion and personal integrity are our top priorities.',
@@ -273,9 +277,11 @@ const translations = {
     },
     about: {
       title: 'Chi Siamo',
-      intro: 'Build & Consult è più di una consulenza. Siamo il vostro partner strategico in un mondo immobiliare complesso.',
+      intro: 'BUILD & CONSULT è più di una consulenza. Siamo il vostro partner strategico in un mondo immobiliare complesso.',
       mission_title: 'La Nostra Missione',
       mission_text: 'La nostra missione \u00e8 fornire ai clienti sicurezza e affidabilit\u00e0.\n\nCreiamo strutture chiare e gestiamo progetti di costruzione con un focus su scadenze, qualit\u00e0 e costi, rendendoli pianificabili, controllabili e portati a termine con successo anche in situazioni impegnative.',
+      network_title: 'La Nostra Rete',
+      network_text: 'BUILD & CONSULT collabora con una rete consolidata di aziende partner specializzate.\nA seconda dei requisiti del progetto, coinvolgiamo strategicamente progettisti specializzati esperti, appaltatori e fornitori di servizi.\n\nI nostri servizi possono essere forniti in modo olistico come soluzione completa o modulare come pacchetti di servizi individuali.\nSe desiderato, organizziamo anche le nostre aziende partner direttamente e in modo indipendente, in modo trasparente e senza vincoli.\n\nIn questo modo, i nostri clienti ricevono esattamente il supporto di cui hanno bisogno \u2013 flessibile, efficiente e su misura.',
       quote: 'La qualità nasce dove l\'esperienza incontra la passione.',
       team_title: 'Il Board',
       team_intro: 'Discrezione e integrità personale sono le nostre massime priorità.',
@@ -444,8 +450,8 @@ const Home = ({ t, setPage }) => (
             Interim-Projektleitung
           </h2>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Wenn es brennt, sind wir f\u00fcr Sie da. Sofortige Verf\u00fcgbarkeit, operative Excellence und Krisenmanagement \u2013
-            wenn Ihre Projekte einen erfahrenen Projektleiter ben\u00f6tigen, stehen wir bereit.
+            Wenn es brennt, sind wir für Sie da. Sofortige Verfügbarkeit, operative Excellence und Krisenmanagement –
+            wenn Ihre Projekte einen erfahrenen Projektleiter benötigen, stehen wir bereit.
           </p>
           <button
             onClick={() => setPage('services')}
@@ -512,8 +518,8 @@ const Home = ({ t, setPage }) => (
            </button>
         </div>
         <div className="grid grid-cols-2 gap-4">
-           <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover transform translate-y-8 shadow-xl" alt="Baustelle 1"/>
-           <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover shadow-xl" alt="Baustelle 2"/>
+           <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop" className="w-full h-64 object-cover transform translate-y-8 shadow-xl" alt="Baustelle 1"/>
+           <img src="images/home-baustelle-2.jpg" className="w-full h-64 object-cover shadow-xl" alt="Baustelle 2"/>
         </div>
       </div>
     </div>
@@ -536,6 +542,20 @@ const About = ({ t }) => (
         <div className="relative h-96">
            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" className="w-full h-full object-cover shadow-2xl" alt="Office"/>
            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#0B1F38] z-[-1]"></div>
+        </div>
+      </div>
+    </div>
+
+    {/* Network Section */}
+    <div className="bg-white py-20">
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-3xl font-serif text-[#0B1F38] mb-8 text-center">{t.about.network_title}</h3>
+          <div className="bg-[#F8F9FA] p-10 border-l-4 border-[#D9C5A1]">
+            <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+              {t.about.network_text}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -610,7 +630,7 @@ const Services = ({ t }) => {
                     <span className="text-[#D9C5A1] text-4xl mr-4 opacity-50 font-sans">0{index + 1}</span>
                     {service.title}
                   </h4>
-                  <p className="text-gray-600 text-2xl leading-relaxed mb-6">
+                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
                     {service.text}
                   </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -814,7 +834,7 @@ export default function App() {
       <style>{styles}</style>
 
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || currentPage !== 'home' ? 'bg-[#0B1F38]/90 shadow-lg py-2' : 'bg-transparent py-4'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1F38]/70 shadow-lg py-4' : currentPage !== 'home' ? 'bg-[#0B1F38]/90 shadow-lg py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="cursor-pointer flex items-center gap-3 hover:opacity-90" onClick={() => setCurrentPage('home')}>
              <Logo />
@@ -883,7 +903,7 @@ export default function App() {
       </nav>
 
       {/* Main Content Area - Pushes content down if not on Home because Home has a Hero that goes under transparent nav */}
-      <main className={`flex-grow ${currentPage !== 'home' ? 'pt-24' : ''}`}>
+      <main className={`flex-grow ${currentPage !== 'home' ? 'pt-36' : ''}`}>
         {renderPage()}
       </main>
 
@@ -891,7 +911,7 @@ export default function App() {
       <footer className="bg-[#081628] text-gray-500 py-12 border-t border-gray-800 text-sm mt-auto">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Build & Consult Real Estate GmbH. {t.footer.rights}
+            &copy; {new Date().getFullYear()} BUILD & CONSULT Real Estate GmbH. {t.footer.rights}
           </div>
           <div className="flex space-x-6">
             <button className="hover:text-[#D9C5A1] transition-colors">{t.footer.imprint}</button>
