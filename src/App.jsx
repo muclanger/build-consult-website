@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, Phone, Mail, MapPin, ChevronRight, Check, ArrowRight, Linkedin, Target } from 'lucide-react';
 import logoSvg from '/logo.svg';
+import logoHoch from '/logo_hoch.svg';
+import logoBreit from '/logo_breit.svg';
 
 // --- Styles Injection ---
 // Simulierte CSS-Umgebung. In Produktion sollte dies in eine CSS-Datei oder den Head.
@@ -18,7 +20,7 @@ const translations = {
   de: {
     nav: { home: 'Home', about: 'Über Uns', services: 'Dienstleistungen', method: 'Arbeitsweise', why: 'Warum wir?', contact: 'Kontakt' },
     home: {
-      title: 'Ihr Premium-Partner f\u00fcr Real Estate Consulting & Projekt Management',
+      title: 'Ihr Partner f\u00fcr Real Estate Consulting & Projekt Management',
       subtitle: 'Exzellenz in Bau und Immobilien',
       cta: 'Unsere Expertise',
       teaser_title: 'Exzellenz in Bau und Immobilien',
@@ -388,9 +390,18 @@ const translations = {
 
 // --- Sub-Components ---
 
-const Logo = () => (
-  <div className="flex items-center justify-center select-none">
-    <img src={logoSvg} alt="BUILD & CONSULT" className="h-32 w-auto" />
+const Logo = ({ scrolled }) => (
+  <div className="flex items-center justify-center select-none relative" style={{ minWidth: '150px' }}>
+    <img
+      src={logoHoch}
+      alt="BUILD & CONSULT"
+      className={`h-24 w-auto transition-opacity duration-500 ${scrolled ? 'opacity-0 absolute' : 'opacity-100'}`}
+    />
+    <img
+      src={logoBreit}
+      alt="BUILD & CONSULT"
+      className={`h-24 w-auto transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0 absolute'}`}
+    />
   </div>
 );
 
@@ -837,7 +848,7 @@ export default function App() {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1F38]/70 shadow-lg py-4' : currentPage !== 'home' ? 'bg-[#0B1F38]/90 shadow-lg py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="cursor-pointer flex items-center gap-3 hover:opacity-90" onClick={() => setCurrentPage('home')}>
-             <Logo />
+             <Logo scrolled={scrolled} />
           </div>
 
           {/* Desktop Nav */}
