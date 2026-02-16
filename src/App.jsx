@@ -20,7 +20,7 @@ const translations = {
   de: {
     nav: { home: 'Home', about: 'Über Uns', services: 'Dienstleistungen', method: 'Arbeitsweise', why: 'Warum wir?', contact: 'Kontakt' },
     home: {
-      title: 'Ihr Partner f\u00fcr Real Estate Consulting & Projekt Management',
+      title: 'Ihr Partner f\u00fcr Ihr gesamtes Bau- und Immobilienprojekt',
       subtitle: 'Exzellenz in Bau und Immobilien',
       cta: 'Unsere Expertise',
       teaser_title: 'Exzellenz in Bau und Immobilien',
@@ -37,7 +37,7 @@ const translations = {
       mission_title: 'Unsere Mission',
       mission_text: 'Unsere Mission ist es, Bauherren Sicherheit und Verl\u00e4sslichkeit zu geben.\n\nWir schaffen klare Strukturen und f\u00fchren Bauprojekte im Fokus von Termin, Qualit\u00e4t und Kosten auch in anspruchsvollen Situationen planbar, kontrollierbar und erfolgreich zum Ziel.',
       network_title: 'Unser Netzwerk',
-      network_text: 'BUILD & CONSULT arbeitet mit einem bew\u00e4hrten Netzwerk aus spezialisierten Partnerfirmen zusammen.\nJe nach Projektanforderung binden wir gezielt erfahrene Fachplaner, Unternehmer und Dienstleister ein.\n\nUnsere Leistungen k\u00f6nnen dabei ganzheitlich aus einer Hand oder modular als einzelne Leistungspakete erbracht werden.\nAuf Wunsch vermitteln wir unsere Partnerfirmen auch direkt und unabh\u00e4ngig, transparent und ohne Bindung.\n\nSo erhalten unsere Auftraggeber genau die Unterst\u00fctzung, die sie ben\u00f6tigen \u2013 flexibel, effizient und bedarfsgerecht.',
+      network_text: 'BUILD & CONSULT arbeitet mit einem bew\u00e4hrten Netzwerk aus spezialisierten Partnerfirmen zusammen. Je nach Projektanforderung binden wir gezielt erfahrene Fachplaner, Unternehmer und Dienstleister ein.\n\nUnsere Leistungen k\u00f6nnen dabei ganzheitlich aus einer Hand oder modular als einzelne Leistungspakete erbracht werden. Auf Wunsch vermitteln wir unsere Partnerfirmen auch direkt und unabh\u00e4ngig, transparent und ohne Bindung.\n\nSo erhalten unsere Auftraggeber genau die Unterst\u00fctzung, die sie ben\u00f6tigen \u2013 flexibel, effizient und bedarfsgerecht.',
       quote: 'Qualit\u00e4t entsteht dort, wo Erfahrung auf Leidenschaft trifft.',
       team_title: 'Das Board',
       team_intro: 'Diskretion und persönliche Integrität stehen für uns an erster Stelle.',
@@ -50,8 +50,8 @@ const translations = {
         {
           title: 'Interim-Projektleitung & Baustellen-Turnaround',
           icon: 'Target',
-          text: 'Bauprojekte geraten aus unterschiedlichen Gr\u00fcnden in Schieflage: unklare Zust\u00e4ndigkeiten, Terminverzug, Kosten\u00fcberschreitungen oder fehlende F\u00fchrung auf der Baustelle.\n\nGenau hier setzen wir an.\n\nWir \u00fcbernehmen tempor\u00e4r und unmittelbar Verantwortung in Projekten mit erh\u00f6htem Handlungsbedarf \u2013 nicht nur beratend oder steuernd, sondern operativ und direkt vor Ort.',
-          points: ['Sofortige Verf\u00fcgbarkeit', 'Operative Projektleitung', 'Krisenintervention', 'Tempor\u00e4re F\u00fchrung'],
+          text: 'Bauprojekte geraten aus unterschiedlichen Gr\u00fcnden in Schieflage: Unklare Zust\u00e4ndigkeiten, Terminverzug, Kosten\u00fcberschreitungen oder fehlende F\u00fchrung auf der Baustelle.\n\nGenau hier setzen wir an.\n\nWir \u00fcbernehmen tempor\u00e4r oder langfristig und unmittelbar Verantwortung in Projekten mit erh\u00f6htem Handlungsbedarf \u2013 nicht nur beratend oder steuernd, sondern operativ und direkt vor Ort.',
+          points: ['Sofortige Verf\u00fcgbarkeit', 'Operative Projektleitung', 'Krisenintervention', 'Tempor\u00e4re oder langfristige F\u00fchrung'],
           image: 'images/services/interim-projektleitung.jpg',
           isUsp: true
         },
@@ -67,7 +67,7 @@ const translations = {
           icon: 'Users',
           text: 'Wir vertreten Ihre Interessen gegen\u00fcber allen Projektbeteiligten und sorgen f\u00fcr die Einhaltung von Kosten, Terminen und Qualit\u00e4t. Je nach Mandat \u00fcbernehmen wir Koordinations- und Entscheidungsaufgaben in Ihrem Namen.',
           points: ['Vertretung Ihrer Interessen', 'Koordination aller Beteiligten', 'Qualit\u00e4tssicherung', 'Termin\u00fcberwachung'],
-          image: 'images/services/bauherrenvertretung.jpg'
+          image: 'images/services/bauherr.jpg'
         },
         {
           title: 'Projektsteuerung',
@@ -95,7 +95,7 @@ const translations = {
           icon: 'BarChart',
           text: 'Wir erstellen fundierte Gutachten zu Zustand, Funktion und Optimierungspotenzialen von haustechnischen Anlagen als Entscheidungsgrundlage f\u00fcr Betrieb und Investitionen.',
           points: ['Zustandsanalyse', 'Funktionspr\u00fcfung', 'Optimierungsvorschl\u00e4ge', 'Investitionsplanung'],
-          image: 'images/services/gutachten-haustechnik.jpg'
+          image: 'images/services/haustechnik.jpg'
         }
       ]
     },
@@ -143,7 +143,7 @@ const translations = {
   en: {
     nav: { home: 'Home', about: 'About Us', services: 'Services', method: 'Approach', why: 'Why Us?', contact: 'Contact' },
     home: {
-      title: 'Your Premium Partner for Real Estate Consulting & Project Management',
+      title: 'Your Partner for Your Complete Construction and Real Estate Project',
       subtitle: 'Excellence in Construction and Real Estate',
       cta: 'Our Expertise',
       teaser_title: 'Excellence in Construction and Real Estate',
@@ -160,7 +160,7 @@ const translations = {
       mission_title: 'Our Mission',
       mission_text: 'Our mission is to provide clients with security and reliability.\n\nWe create clear structures and manage construction projects with a focus on deadlines, quality, and costs, making them plannable, controllable, and successfully completed even in challenging situations.',
       network_title: 'Our Network',
-      network_text: 'BUILD & CONSULT works with a proven network of specialized partner companies.\nDepending on project requirements, we strategically engage experienced specialist planners, contractors, and service providers.\n\nOur services can be delivered holistically as a one-stop solution or modularly as individual service packages.\nIf desired, we also arrange our partner companies directly and independently, transparently and without obligation.\n\nThis way, our clients receive exactly the support they need \u2013 flexible, efficient, and tailored to their needs.',
+      network_text: 'BUILD & CONSULT works with a proven network of specialized partner companies. Depending on project requirements, we strategically engage experienced specialist planners, contractors, and service providers.\n\nOur services can be delivered holistically as a one-stop solution or modularly as individual service packages. If desired, we also arrange our partner companies directly and independently, transparently and without obligation.\n\nThis way, our clients receive exactly the support they need \u2013 flexible, efficient, and tailored to their needs.',
       quote: 'Quality emerges where experience meets passion.',
       team_title: 'The Board',
       team_intro: 'Discretion and personal integrity are our top priorities.',
@@ -173,8 +173,8 @@ const translations = {
         {
           title: 'Interim Project Management & Construction Site Turnaround',
           icon: 'Target',
-          text: 'Construction projects face challenges for various reasons: unclear responsibilities, schedule delays, cost overruns, or lack of on-site leadership.\n\nThis is where we step in.\n\nWe assume temporary and immediate responsibility in projects requiring urgent action \u2013 not just advisory or supervisory, but operationally and directly on-site.',
-          points: ['Immediate Availability', 'Operational Project Management', 'Crisis Intervention', 'Temporary Leadership'],
+          text: 'Construction projects face challenges for various reasons: Unclear responsibilities, schedule delays, cost overruns, or lack of on-site leadership.\n\nThis is where we step in.\n\nWe assume temporary or long-term and immediate responsibility in projects requiring urgent action \u2013 not just advisory or supervisory, but operationally and directly on-site.',
+          points: ['Immediate Availability', 'Operational Project Management', 'Crisis Intervention', 'Temporary or Long-term Leadership'],
           image: 'images/services/interim-projektleitung.jpg',
           isUsp: true
         },
@@ -190,7 +190,7 @@ const translations = {
           icon: 'Users',
           text: 'We represent your interests to all project stakeholders and ensure compliance with costs, schedules, and quality. Depending on the mandate, we assume coordination and decision-making responsibilities on your behalf.',
           points: ['Representation of Your Interests', 'Coordination of All Stakeholders', 'Quality Assurance', 'Schedule Monitoring'],
-          image: 'images/services/bauherrenvertretung.jpg'
+          image: 'images/services/bauherr.jpg'
         },
         {
           title: 'Project Control',
@@ -218,7 +218,7 @@ const translations = {
           icon: 'BarChart',
           text: 'We provide comprehensive assessments of the condition, function, and optimization potential of building technical systems as a decision-making basis for operation and investments.',
           points: ['Condition Analysis', 'Function Testing', 'Optimization Recommendations', 'Investment Planning'],
-          image: 'images/services/gutachten-haustechnik.jpg'
+          image: 'images/services/haustechnik.jpg'
         }
       ]
     },
@@ -266,7 +266,7 @@ const translations = {
   it: {
     nav: { home: 'Home', about: 'Chi siamo', services: 'Servizi', method: 'Metodo', why: 'Perché noi?', contact: 'Contatto' },
     home: {
-      title: 'Il Vostro Partner Premium per Real Estate Consulting & Project Management',
+      title: 'Il Vostro Partner per il Vostro Progetto Completo di Costruzione e Immobiliare',
       subtitle: 'Eccellenza in Edilizia e Immobiliare',
       cta: 'La Nostra Expertise',
       teaser_title: 'Eccellenza in Edilizia e Immobiliare',
@@ -283,7 +283,7 @@ const translations = {
       mission_title: 'La Nostra Missione',
       mission_text: 'La nostra missione \u00e8 fornire ai clienti sicurezza e affidabilit\u00e0.\n\nCreiamo strutture chiare e gestiamo progetti di costruzione con un focus su scadenze, qualit\u00e0 e costi, rendendoli pianificabili, controllabili e portati a termine con successo anche in situazioni impegnative.',
       network_title: 'La Nostra Rete',
-      network_text: 'BUILD & CONSULT collabora con una rete consolidata di aziende partner specializzate.\nA seconda dei requisiti del progetto, coinvolgiamo strategicamente progettisti specializzati esperti, appaltatori e fornitori di servizi.\n\nI nostri servizi possono essere forniti in modo olistico come soluzione completa o modulare come pacchetti di servizi individuali.\nSe desiderato, organizziamo anche le nostre aziende partner direttamente e in modo indipendente, in modo trasparente e senza vincoli.\n\nIn questo modo, i nostri clienti ricevono esattamente il supporto di cui hanno bisogno \u2013 flessibile, efficiente e su misura.',
+      network_text: 'BUILD & CONSULT collabora con una rete consolidata di aziende partner specializzate. A seconda dei requisiti del progetto, coinvolgiamo strategicamente progettisti specializzati esperti, appaltatori e fornitori di servizi.\n\nI nostri servizi possono essere forniti in modo olistico come soluzione completa o modulare come pacchetti di servizi individuali. Se desiderato, organizziamo anche le nostre aziende partner direttamente e in modo indipendente, in modo trasparente e senza vincoli.\n\nIn questo modo, i nostri clienti ricevono esattamente il supporto di cui hanno bisogno \u2013 flessibile, efficiente e su misura.',
       quote: 'La qualità nasce dove l\'esperienza incontra la passione.',
       team_title: 'Il Board',
       team_intro: 'Discrezione e integrità personale sono le nostre massime priorità.',
@@ -296,8 +296,8 @@ const translations = {
         {
           title: 'Gestione Progetti Interim & Turnaround Cantieri',
           icon: 'Target',
-          text: 'I progetti di costruzione affrontano difficolt\u00e0 per vari motivi: responsabilit\u00e0 poco chiare, ritardi nei tempi, superamenti dei costi o mancanza di leadership in cantiere.\n\n\u00c8 qui che interveniamo.\n\nAssumiamo responsabilit\u00e0 temporanea e immediata in progetti che richiedono azione urgente \u2013 non solo consultiva o di supervisione, ma operativa e direttamente in loco.',
-          points: ['Disponibilit\u00e0 Immediata', 'Gestione Operativa del Progetto', 'Intervento in Situazioni di Crisi', 'Leadership Temporanea'],
+          text: 'I progetti di costruzione affrontano difficolt\u00e0 per vari motivi: Responsabilit\u00e0 poco chiare, ritardi nei tempi, superamenti dei costi o mancanza di leadership in cantiere.\n\n\u00c8 qui che interveniamo.\n\nAssumiamo responsabilit\u00e0 temporanea o a lungo termine e immediata in progetti che richiedono azione urgente \u2013 non solo consultiva o di supervisione, ma operativa e direttamente in loco.',
+          points: ['Disponibilit\u00e0 Immediata', 'Gestione Operativa del Progetto', 'Intervento in Situazioni di Crisi', 'Leadership Temporanea o a Lungo Termine'],
           image: 'images/services/interim-projektleitung.jpg',
           isUsp: true
         },
@@ -313,7 +313,7 @@ const translations = {
           icon: 'Users',
           text: 'Rappresentiamo i vostri interessi verso tutti gli stakeholder del progetto e garantiamo il rispetto di costi, scadenze e qualit\u00e0. A seconda del mandato, assumiamo responsabilit\u00e0 di coordinamento e decisione per vostro conto.',
           points: ['Rappresentanza dei Vostri Interessi', 'Coordinamento di Tutti gli Stakeholder', 'Assicurazione Qualit\u00e0', 'Monitoraggio Scadenze'],
-          image: 'images/services/bauherrenvertretung.jpg'
+          image: 'images/services/bauherr.jpg'
         },
         {
           title: 'Controllo Progetto',
@@ -341,7 +341,7 @@ const translations = {
           icon: 'BarChart',
           text: 'Forniamo perizie complete sullo stato, la funzione e il potenziale di ottimizzazione dei sistemi tecnici dell\'edificio come base decisionale per operazione e investimenti.',
           points: ['Analisi dello Stato', 'Test di Funzionamento', 'Raccomandazioni di Ottimizzazione', 'Pianificazione Investimenti'],
-          image: 'images/services/gutachten-haustechnik.jpg'
+          image: 'images/services/haustechnik.jpg'
         }
       ]
     },
@@ -545,7 +545,7 @@ const About = ({ t }) => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
           <h3 className="text-2xl font-serif text-[#0B1F38] mb-6">{t.about.mission_title}</h3>
-          <p className="text-gray-600 text-2xl leading-relaxed mb-6">{t.about.mission_text}</p>
+          <p className="text-gray-600 text-xl leading-relaxed mb-6">{t.about.mission_text}</p>
           <div className="bg-[#F8F9FA] p-8 border-l-4 border-[#D9C5A1]">
             <p className="italic text-[#0B1F38] font-serif text-xl">"{t.about.quote}"</p>
           </div>
@@ -563,7 +563,7 @@ const About = ({ t }) => (
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl font-serif text-[#0B1F38] mb-8 text-center">{t.about.network_title}</h3>
           <div className="bg-[#F8F9FA] p-10 border-l-4 border-[#D9C5A1]">
-            <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+            <p className="text-gray-700 text-xl leading-relaxed whitespace-pre-line">
               {t.about.network_text}
             </p>
           </div>
@@ -571,19 +571,19 @@ const About = ({ t }) => (
       </div>
     </div>
 
-    {/* Team Section with Privacy Hack */}
+    {/* Team Section with Privacy Hack - COMMENTED OUT FOR LATER USE */}
+    {/*
     <div className="bg-gray-50 py-20">
       <div className="container mx-auto px-6 text-center">
         <h3 className="text-2xl font-serif text-[#0B1F38] mb-2">{t.about.team_title}</h3>
         <p className="text-gray-500 mb-12 max-w-2xl mx-auto">{t.about.team_intro}</p>
-        
+
         <div className="flex justify-center">
           <div className="bg-white p-8 shadow-xl w-full max-w-sm border-t-4 border-[#0B1F38] hover:-translate-y-2 transition-transform duration-300">
              <div className="w-40 h-40 mx-auto bg-gray-200 rounded-full mb-6 overflow-hidden relative border-4 border-gray-100">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" alt="Partner" className="w-full h-full object-cover" />
              </div>
-             {/* Name protected from simple text search via image or split spans (symbolic here) */}
-             <h3 className="text-xl font-serif text-[#0B1F38] mb-1">Max Mustermann</h3> 
+             <h3 className="text-xl font-serif text-[#0B1F38] mb-1">Max Mustermann</h3>
              <p className="text-[#D9C5A1] font-bold text-xs uppercase tracking-widest mb-6">{t.about.role}</p>
              <div className="flex justify-center space-x-4 text-gray-400">
                 <Linkedin size={20} className="hover:text-[#0B1F38] cursor-pointer" />
@@ -593,6 +593,7 @@ const About = ({ t }) => (
         </div>
       </div>
     </div>
+    */}
   </div>
 );
 
@@ -703,7 +704,7 @@ const Why = ({ t }) => (
         {/* Main Text Section */}
         {t.why.main_text && (
           <div className="mb-16 text-center">
-            <p className="text-gray-600 text-2xl leading-relaxed whitespace-pre-line max-w-3xl mx-auto">
+            <p className="text-gray-600 text-xl leading-relaxed whitespace-pre-line max-w-3xl mx-auto">
               {t.why.main_text}
             </p>
           </div>
@@ -728,7 +729,7 @@ const Why = ({ t }) => (
         {/* Closing Text */}
         {t.why.closing_text && (
           <div className="text-center bg-[#F8F9FA] p-10 border-l-4 border-[#D9C5A1]">
-            <p className="text-gray-700 text-2xl leading-relaxed font-medium whitespace-pre-line">
+            <p className="text-gray-700 text-xl leading-relaxed font-medium whitespace-pre-line">
               {t.why.closing_text}
             </p>
           </div>
@@ -768,7 +769,7 @@ const Contact = ({ t }) => (
                 </div>
                 <div className="flex items-center space-x-4">
                   <Mail className="text-[#D9C5A1]" />
-                  <span className="text-gray-300">info@build-consult.ch</span>
+                  <span className="text-gray-300">info@buildconsult-realestate.ch</span>
                 </div>
              </div>
            </div>
@@ -845,7 +846,7 @@ export default function App() {
       <style>{styles}</style>
 
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1F38]/70 shadow-lg py-4' : currentPage !== 'home' ? 'bg-[#0B1F38]/90 shadow-lg py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1F38]/80 shadow-lg py-4' : currentPage !== 'home' ? 'bg-[#0B1F38]/95 shadow-lg py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="cursor-pointer flex items-center gap-3 hover:opacity-90" onClick={() => setCurrentPage('home')}>
              <Logo scrolled={scrolled} />
