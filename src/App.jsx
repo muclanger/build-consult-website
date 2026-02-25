@@ -132,7 +132,7 @@ const translations = {
       office_hours_text: 'Mo - Fr: 09:00 - 18:00 Uhr',
       address: 'Schulhausstrasse 58, 8002 Z\u00fcrich',
       phone: '+41 44 558 44 52',
-      form: { name: 'Name', email: 'E-Mail', message: 'Ihre Nachricht', send: 'Nachricht senden' }
+      form: { name: 'Name', email: 'E-Mail', message: 'Ihre Nachricht', send: 'Nachricht senden', success_title: 'Nachricht gesendet!', success_text: 'Vielen Dank. Wir melden uns baldmöglichst bei Ihnen.', error_text: 'Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.' }
     },
     footer: {
       rights: 'Alle Rechte vorbehalten.',
@@ -255,7 +255,7 @@ const translations = {
       office_hours_text: 'Mon - Fri: 09:00 AM - 06:00 PM',
       address: 'Schulhausstrasse 58, 8002 Zurich',
       phone: '+41 44 558 44 52',
-      form: { name: 'Name', email: 'Email', message: 'Your Message', send: 'Send Message' }
+      form: { name: 'Name', email: 'Email', message: 'Your Message', send: 'Send Message', success_title: 'Message Sent!', success_text: 'Thank you. We will get back to you as soon as possible.', error_text: 'Error sending message. Please try again or contact us directly.' }
     },
     footer: {
       rights: 'All rights reserved.',
@@ -378,7 +378,7 @@ const translations = {
       office_hours_text: 'Lun - Ven: 09:00 - 18:00',
       address: 'Schulhausstrasse 58, 8002 Zurigo',
       phone: '+41 44 558 44 52',
-      form: { name: 'Nome', email: 'Email', message: 'Il Vostro Messaggio', send: 'Invia Messaggio' }
+      form: { name: 'Nome', email: 'Email', message: 'Il Vostro Messaggio', send: 'Invia Messaggio', success_title: 'Messaggio inviato!', success_text: 'Grazie. Vi risponderemo il prima possibile.', error_text: "Errore nell'invio. Riprovate o contattateci direttamente." }
     },
     footer: {
       rights: 'Tutti i diritti riservati.',
@@ -749,59 +749,357 @@ const Why = ({ t }) => (
   </div>
 );
 
-const Contact = ({ t }) => (
-  <div className="animate-fadeIn pb-20">
-    <SectionHeader title={t.contact.title} subtitle={t.contact.text} />
-    
-    <div className="container mx-auto px-6 py-20">
-      <div className="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 bg-[#0B1F38] p-12 text-white flex flex-col justify-between">
-           <div>
-             <h3 className="text-2xl font-serif mb-8 text-[#D9C5A1]">{t.contact.contact_details}</h3>
-             <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="text-[#D9C5A1] mt-1" />
-                  <span className="text-gray-300">{t.contact.address}</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Phone className="text-[#D9C5A1]" />
-                  <span className="text-gray-300">{t.contact.phone}</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Mail className="text-[#D9C5A1]" />
-                  <span className="text-gray-300">info@buildconsult-realestate.ch</span>
-                </div>
+const Contact = ({ t }) => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch('/mail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div className="animate-fadeIn pb-20">
+      <SectionHeader title={t.contact.title} subtitle={t.contact.text} />
+
+      <div className="container mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden flex flex-col md:flex-row">
+          <div className="w-full md:w-1/2 bg-[#0B1F38] p-12 text-white flex flex-col justify-between">
+             <div>
+               <h3 className="text-2xl font-serif mb-8 text-[#D9C5A1]">{t.contact.contact_details}</h3>
+               <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <MapPin className="text-[#D9C5A1] mt-1" />
+                    <span className="text-gray-300">{t.contact.address}</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Phone className="text-[#D9C5A1]" />
+                    <span className="text-gray-300">{t.contact.phone}</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Mail className="text-[#D9C5A1]" />
+                    <span className="text-gray-300">info@buildconsult-realestate.ch</span>
+                  </div>
+               </div>
              </div>
-           </div>
-           <div className="mt-12">
-              <p className="text-xs text-gray-400 uppercase tracking-widest">{t.contact.office_hours}</p>
-              <p className="text-gray-300 mt-2">{t.contact.office_hours_text}</p>
-           </div>
-        </div>
-        
-        <div className="w-full md:w-1/2 p-12 bg-gray-50">
-           <form className="space-y-6">
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t.contact.form.name}</label>
-                <input type="text" className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:border-[#0B1F38]" />
+             <div className="mt-12">
+                <p className="text-xs text-gray-400 uppercase tracking-widest">{t.contact.office_hours}</p>
+                <p className="text-gray-300 mt-2">{t.contact.office_hours_text}</p>
+             </div>
+          </div>
+
+          <div className="w-full md:w-1/2 p-12 bg-gray-50">
+            {status === 'success' ? (
+              <div className="h-full flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 bg-[#D9C5A1] rounded-full flex items-center justify-center mb-6">
+                  <Check size={32} className="text-[#0B1F38]" />
+                </div>
+                <h3 className="text-xl font-serif text-[#0B1F38] mb-3">
+                  {t.contact.form.success_title || 'Nachricht gesendet!'}
+                </h3>
+                <p className="text-gray-600">
+                  {t.contact.form.success_text || 'Vielen Dank. Wir melden uns baldmöglichst bei Ihnen.'}
+                </p>
               </div>
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t.contact.form.email}</label>
-                <input type="email" className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:border-[#0B1F38]" />
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t.contact.form.message}</label>
-                <textarea rows="4" className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:border-[#0B1F38]"></textarea>
-              </div>
-              <button className="bg-[#D9C5A1] text-[#0B1F38] px-8 py-3 uppercase tracking-widest font-bold text-sm hover:bg-[#0B1F38] hover:text-white transition-colors w-full">
-                {t.contact.form.send}
-              </button>
-           </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t.contact.form.name}</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+                    className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:border-[#0B1F38]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t.contact.form.email}</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
+                    className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:border-[#0B1F38]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t.contact.form.message}</label>
+                  <textarea
+                    rows="4"
+                    required
+                    value={formData.message}
+                    onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
+                    className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:border-[#0B1F38]"
+                  ></textarea>
+                </div>
+                {status === 'error' && (
+                  <p className="text-red-600 text-sm">{t.contact.form.error_text || 'Fehler beim Senden. Bitte versuchen Sie es erneut.'}</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="bg-[#D9C5A1] text-[#0B1F38] px-8 py-3 uppercase tracking-widest font-bold text-sm hover:bg-[#0B1F38] hover:text-white transition-colors w-full disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === 'sending' ? '...' : t.contact.form.send}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
+
+// --- Imprint Content ---
+
+const imprintContent = {
+  de: {
+    title: 'Impressum',
+    sections: [
+      {
+        heading: 'Angaben gemäss Art. 12 UWG',
+        content: `BUILD & CONSULT Real Estate GmbH\nSchulhausstrasse 58\n8002 Zürich\nSchweiz`
+      },
+      {
+        heading: 'Kontakt',
+        content: `E-Mail: info@buildconsult-realestate.ch\nTelefon: +41 44 558 44 52`
+      },
+      {
+        heading: 'Handelsregistereintrag',
+        content: `Eingetragen im Handelsregister des Kantons Zürich\nUID: CHE-238.712.541`
+      },
+      {
+        heading: 'Haftungsausschluss',
+        content: `Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.\n\nHaftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.`
+      },
+      {
+        heading: 'Urheberrechte',
+        content: `Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich BUILD & CONSULT Real Estate GmbH oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.`
+      }
+    ]
+  },
+  en: {
+    title: 'Legal Notice',
+    sections: [
+      {
+        heading: 'Information pursuant to Art. 12 UCA',
+        content: `BUILD & CONSULT Real Estate GmbH\nSchulhausstrasse 58\n8002 Zurich\nSwitzerland`
+      },
+      {
+        heading: 'Contact',
+        content: `Email: info@buildconsult-realestate.ch\nPhone: +41 44 558 44 52`
+      },
+      {
+        heading: 'Commercial Register Entry',
+        content: `Registered in the Commercial Register of the Canton of Zurich\nUID: CHE-238.712.541`
+      },
+      {
+        heading: 'Disclaimer',
+        content: `The author accepts no liability for the correctness, accuracy, timeliness, reliability or completeness of the information provided.\n\nLiability claims against the author for damages of a material or immaterial nature arising from access to or use of the published information, misuse of the connection, or technical malfunctions are excluded.`
+      },
+      {
+        heading: 'Copyright',
+        content: `The copyright and all other rights to content, images, photos or other files on this website belong exclusively to BUILD & CONSULT Real Estate GmbH or the specifically named rights holders. Written consent from the copyright holders must be obtained in advance for the reproduction of any elements.`
+      }
+    ]
+  },
+  it: {
+    title: 'Note Legali',
+    sections: [
+      {
+        heading: 'Informazioni ai sensi dell\'art. 12 LCD',
+        content: `BUILD & CONSULT Real Estate GmbH\nSchulhausstrasse 58\n8002 Zurigo\nSvizzera`
+      },
+      {
+        heading: 'Contatto',
+        content: `Email: info@buildconsult-realestate.ch\nTelefono: +41 44 558 44 52`
+      },
+      {
+        heading: 'Iscrizione nel Registro di Commercio',
+        content: `Iscritta nel Registro di Commercio del Canton Zurigo\nUID: CHE-238.712.541`
+      },
+      {
+        heading: 'Esclusione di Responsabilità',
+        content: `L'autore non si assume alcuna responsabilità per la correttezza, l'accuratezza, l'attualità, l'affidabilità e la completezza delle informazioni fornite.\n\nSono escluse eventuali pretese di risarcimento nei confronti dell'autore per danni materiali o immateriali derivanti dall'accesso o dall'uso delle informazioni pubblicate, dall'uso improprio della connessione o da malfunzionamenti tecnici.`
+      },
+      {
+        heading: 'Diritti d\'Autore',
+        content: `Il diritto d'autore e tutti gli altri diritti sui contenuti, immagini, foto o altri file presenti sul sito web appartengono esclusivamente a BUILD & CONSULT Real Estate GmbH o ai titolari dei diritti specificamente nominati. Per la riproduzione di qualsiasi elemento è necessario ottenere preventivamente il consenso scritto dei titolari del diritto d'autore.`
+      }
+    ]
+  }
+};
+
+const Imprint = ({ lang }) => {
+  const content = imprintContent[lang] || imprintContent['de'];
+  return (
+    <div className="animate-fadeIn pb-20">
+      <SectionHeader title={content.title} />
+      <div className="container mx-auto px-6 py-16">
+        <div className="max-w-3xl mx-auto">
+          {content.sections.map((section, index) => (
+            <div key={index} className="mb-10">
+              <h2 className="text-xl font-serif text-[#0B1F38] mb-4 border-b border-[#D9C5A1] pb-2">{section.heading}</h2>
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line text-base">{section.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- Privacy Policy Content ---
+
+const privacyContent = {
+  de: {
+    title: 'Datenschutzerklärung',
+    sections: [
+      {
+        heading: '1. Verantwortlicher',
+        content: `BUILD & CONSULT Real Estate GmbH\nSchulhausstrasse 58\n8002 Zürich\nSchweiz\n\nE-Mail: info@buildconsult-realestate.ch\nTelefon: +41 44 558 44 52`
+      },
+      {
+        heading: '2. Allgemeines zur Datenverarbeitung',
+        content: `Wir nehmen den Schutz Ihrer persönlichen Daten ernst und behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (Schweizer Datenschutzgesetz, nDSG, sowie der EU-Datenschutz-Grundverordnung, DSGVO, soweit anwendbar) sowie dieser Datenschutzerklärung.\n\nDie Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis.`
+      },
+      {
+        heading: '3. Hosting',
+        content: `Diese Website wird über IONOS SE (Elgendorfer Str. 57, 56410 Montabaur, Deutschland) gehostet.\n\nBeim Abruf unserer Website übermittelt Ihr Browser automatisch technische Daten (IP-Adresse, Browsertyp, Betriebssystem, Referrer-URL, Datum und Uhrzeit des Abrufs) an die Server von IONOS. Diese Daten werden von IONOS verarbeitet und auf Servern innerhalb der Europäischen Union gespeichert.\n\nWeitere Informationen finden Sie in der Datenschutzerklärung von IONOS unter www.ionos.de/terms-gtc/datenschutzerklaerung`
+      },
+      {
+        heading: '4. Kontaktformular',
+        content: `Wenn Sie uns über das Kontaktformular auf unserer Website eine Anfrage senden, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse und Nachrichtentext) zur Bearbeitung Ihrer Anfrage verwendet.\n\nDiese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt auf Basis Ihrer freiwilligen Angaben gemäss Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 31 nDSG.`
+      },
+      {
+        heading: '5. Cookies',
+        content: `Unsere Website verwendet keine Tracking-Cookies oder Analyse-Tools von Drittanbietern. Es werden ausschliesslich technisch notwendige Daten verarbeitet, die für den Betrieb der Website erforderlich sind.`
+      },
+      {
+        heading: '6. Ihre Rechte',
+        content: `Sie haben das Recht auf:\n• Auskunft über die bei uns gespeicherten Daten\n• Berichtigung unrichtiger Daten\n• Löschung Ihrer Daten (soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen)\n• Einschränkung der Verarbeitung\n• Datenübertragbarkeit\n• Widerspruch gegen die Verarbeitung\n\nFür Anfragen zu Ihren Datenschutzrechten wenden Sie sich bitte an:\ninfo@buildconsult-realestate.ch`
+      },
+      {
+        heading: '7. Beschwerde bei der Aufsichtsbehörde',
+        content: `Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen das Datenschutzrecht verstösst, haben Sie das Recht, sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) zu beschweren:\n\nEidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)\nFeldeggweg 1, 3003 Bern\nwww.edoeb.admin.ch`
+      },
+      {
+        heading: '8. Änderungen dieser Datenschutzerklärung',
+        content: `Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie stets den aktuellen rechtlichen Anforderungen zu entsprechen oder um Änderungen unserer Leistungen umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.\n\nStand: Februar 2026`
+      }
+    ]
+  },
+  en: {
+    title: 'Privacy Policy',
+    sections: [
+      {
+        heading: '1. Controller',
+        content: `BUILD & CONSULT Real Estate GmbH\nSchulhausstrasse 58\n8002 Zurich\nSwitzerland\n\nEmail: info@buildconsult-realestate.ch\nPhone: +41 44 558 44 52`
+      },
+      {
+        heading: '2. General Information on Data Processing',
+        content: `We take the protection of your personal data seriously and treat your personal data confidentially and in accordance with statutory data protection regulations (Swiss Federal Act on Data Protection, FADP, and the EU General Data Protection Regulation, GDPR, where applicable) and this privacy policy.\n\nAs a rule, our website can be used without providing personal data. Where personal data is collected on our pages, this is always done on a voluntary basis.`
+      },
+      {
+        heading: '3. Hosting',
+        content: `This website is hosted via IONOS SE (Elgendorfer Str. 57, 56410 Montabaur, Germany).\n\nWhen you access our website, your browser automatically transmits technical data (IP address, browser type, operating system, referrer URL, date and time of access) to IONOS servers. This data is processed by IONOS and stored on servers within the European Union.\n\nFor more information, please refer to IONOS's privacy policy at www.ionos.de/terms-gtc/datenschutzerklaerung`
+      },
+      {
+        heading: '4. Contact Form',
+        content: `If you send us an enquiry via the contact form on our website, the data you enter (name, email address and message text) will be used to process your enquiry.\n\nWe will not pass on this data without your consent. Processing is based on your voluntary information in accordance with Art. 6 para. 1 lit. a GDPR or Art. 31 FADP.`
+      },
+      {
+        heading: '5. Cookies',
+        content: `Our website does not use tracking cookies or third-party analysis tools. Only technically necessary data required for the operation of the website is processed.`
+      },
+      {
+        heading: '6. Your Rights',
+        content: `You have the right to:\n• Information about the data stored with us\n• Correction of incorrect data\n• Deletion of your data (where no statutory retention obligations apply)\n• Restriction of processing\n• Data portability\n• Objection to processing\n\nFor enquiries regarding your data protection rights, please contact:\ninfo@buildconsult-realestate.ch`
+      },
+      {
+        heading: '7. Complaint to the Supervisory Authority',
+        content: `If you believe that the processing of your personal data violates data protection law, you have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC):\n\nFederal Data Protection and Information Commissioner (FDPIC)\nFeldeggweg 1, 3003 Bern\nwww.edoeb.admin.ch`
+      },
+      {
+        heading: '8. Changes to this Privacy Policy',
+        content: `We reserve the right to adapt this privacy policy as necessary to keep it in line with current legal requirements or to implement changes to our services. The new privacy policy will then apply to your next visit.\n\nLast updated: February 2026`
+      }
+    ]
+  },
+  it: {
+    title: 'Informativa sulla Privacy',
+    sections: [
+      {
+        heading: '1. Titolare del Trattamento',
+        content: `BUILD & CONSULT Real Estate GmbH\nSchulhausstrasse 58\n8002 Zurigo\nSvizzera\n\nEmail: info@buildconsult-realestate.ch\nTelefono: +41 44 558 44 52`
+      },
+      {
+        heading: '2. Informazioni Generali sul Trattamento dei Dati',
+        content: `Prendiamo sul serio la protezione dei vostri dati personali e trattiamo i vostri dati personali in modo riservato e in conformità con le disposizioni legali sulla protezione dei dati (Legge federale sulla protezione dei dati, LPD, e il Regolamento generale europeo sulla protezione dei dati, GDPR, ove applicabile) e con la presente informativa sulla privacy.\n\nDi norma, è possibile utilizzare il nostro sito web senza fornire dati personali. Laddove vengono raccolti dati personali sulle nostre pagine, ciò avviene sempre su base volontaria.`
+      },
+      {
+        heading: '3. Hosting',
+        content: `Questo sito web è ospitato tramite IONOS SE (Elgendorfer Str. 57, 56410 Montabaur, Germania).\n\nQuando accedete al nostro sito web, il vostro browser trasmette automaticamente dati tecnici (indirizzo IP, tipo di browser, sistema operativo, URL referrer, data e ora dell'accesso) ai server di IONOS. Questi dati vengono elaborati da IONOS e archiviati su server all'interno dell'Unione Europea.\n\nPer ulteriori informazioni, consultate l'informativa sulla privacy di IONOS all'indirizzo www.ionos.de/terms-gtc/datenschutzerklaerung`
+      },
+      {
+        heading: '4. Modulo di Contatto',
+        content: `Se ci inviate una richiesta tramite il modulo di contatto sul nostro sito web, i dati inseriti (nome, indirizzo email e testo del messaggio) verranno utilizzati per elaborare la vostra richiesta.\n\nNon trasmetteremo questi dati senza il vostro consenso. Il trattamento si basa sulle vostre informazioni volontarie ai sensi dell'art. 6 par. 1 lett. a GDPR o dell'art. 31 LPD.`
+      },
+      {
+        heading: '5. Cookie',
+        content: `Il nostro sito web non utilizza cookie di tracciamento o strumenti di analisi di terze parti. Vengono elaborati solo i dati tecnicamente necessari per il funzionamento del sito web.`
+      },
+      {
+        heading: '6. I Vostri Diritti',
+        content: `Avete il diritto a:\n• Informazioni sui dati memorizzati presso di noi\n• Rettifica dei dati errati\n• Cancellazione dei vostri dati (ove non si applicano obblighi legali di conservazione)\n• Limitazione del trattamento\n• Portabilità dei dati\n• Opposizione al trattamento\n\nPer richieste riguardanti i vostri diritti sulla protezione dei dati, contattate:\ninfo@buildconsult-realestate.ch`
+      },
+      {
+        heading: "7. Reclamo all'Autorità di Vigilanza",
+        content: `Se ritenete che il trattamento dei vostri dati personali violi le norme sulla protezione dei dati, avete il diritto di presentare un reclamo all'Incaricato federale della protezione dei dati e della trasparenza (IFPDT):\n\nIncaricato federale della protezione dei dati e della trasparenza (IFPDT)\nFeldeggweg 1, 3003 Berna\nwww.edoeb.admin.ch`
+      },
+      {
+        heading: '8. Modifiche alla Presente Informativa sulla Privacy',
+        content: `Ci riserviamo il diritto di adattare la presente informativa sulla privacy secondo necessità per mantenerla in linea con i requisiti legali vigenti o per implementare modifiche ai nostri servizi. La nuova informativa sulla privacy si applicherà quindi alla vostra prossima visita.\n\nUltimo aggiornamento: Febbraio 2026`
+      }
+    ]
+  }
+};
+
+const Privacy = ({ lang }) => {
+  const content = privacyContent[lang] || privacyContent['de'];
+  return (
+    <div className="animate-fadeIn pb-20">
+      <SectionHeader title={content.title} />
+      <div className="container mx-auto px-6 py-16">
+        <div className="max-w-3xl mx-auto">
+          {content.sections.map((section, index) => (
+            <div key={index} className="mb-10">
+              <h2 className="text-xl font-serif text-[#0B1F38] mb-4 border-b border-[#D9C5A1] pb-2">{section.heading}</h2>
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line text-base">{section.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // --- Main Layout ---
 
@@ -828,6 +1126,8 @@ export default function App() {
       case 'method': return <Method t={t} />;
       case 'why': return <Why t={t} />;
       case 'contact': return <Contact t={t} />;
+      case 'imprint': return <Imprint lang={lang} />;
+      case 'privacy': return <Privacy lang={lang} />;
       default: return <Home t={t} setPage={setCurrentPage} />;
     }
   };
@@ -846,7 +1146,7 @@ export default function App() {
       <style>{styles}</style>
 
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1F38]/80 shadow-lg py-4' : currentPage !== 'home' ? 'bg-[#0B1F38]/95 shadow-lg py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1F38]/95 shadow-lg py-4' : currentPage !== 'home' ? 'bg-[#0B1F38]/95 shadow-lg py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="cursor-pointer flex items-center gap-3 hover:opacity-90" onClick={() => setCurrentPage('home')}>
              <Logo scrolled={scrolled} />
@@ -926,8 +1226,8 @@ export default function App() {
             &copy; {new Date().getFullYear()} BUILD & CONSULT Real Estate GmbH. {t.footer.rights}
           </div>
           <div className="flex space-x-6">
-            <button className="hover:text-[#D9C5A1] transition-colors">{t.footer.imprint}</button>
-            <button className="hover:text-[#D9C5A1] transition-colors">{t.footer.privacy}</button>
+            <button onClick={() => { setCurrentPage('imprint'); window.scrollTo(0,0); }} className="hover:text-[#D9C5A1] transition-colors">{t.footer.imprint}</button>
+            <button onClick={() => { setCurrentPage('privacy'); window.scrollTo(0,0); }} className="hover:text-[#D9C5A1] transition-colors">{t.footer.privacy}</button>
           </div>
         </div>
       </footer>
